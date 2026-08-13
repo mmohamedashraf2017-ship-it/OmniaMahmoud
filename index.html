@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>من محمود لأمنية ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(180deg, #4a0825, #17030d);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* قلوب في الخلفية */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    color: rgba(255, 105, 150, 0.25);
+    font-size: 25px;
+    animation: float 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* شاشة الباسورد */
+#login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 25px;
+    padding: 35px 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.login-box h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: #ffd6e5;
+    line-height: 1.8;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+}
+
+button {
+    border: none;
+    border-radius: 15px;
+    padding: 14px 25px;
+    margin-top: 15px;
+    background: #ff4f91;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#error {
+    color: #ffb1c9;
+    display: none;
+    margin-top: 10px;
+}
+
+/* المحتوى */
+#content {
+    display: none;
+    position: relative;
+    z-index: 2;
+    padding: 25px 15px 50px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 15px 0 5px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #ffc5d9;
+    margin-bottom: 25px;
+}
+
+/* الصور */
+.main-photo {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 25px;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* الرسالة */
+.message {
+    background: rgba(255,255,255,0.08);
+    border-radius: 25px;
+    padding: 25px 20px;
+    margin-top: 25px;
+    line-height: 2;
+    font-size: 19px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.message .big {
+    font-size: 27px;
+    color: #ff9fbe;
+    font-weight: bold;
+}
+
+/* العداد */
+.countdown-box {
+    margin: 30px 0;
+    background: rgba(255,255,255,0.08);
+    border-radius: 25px;
+    padding: 25px 15px;
+}
+
+.countdown-title {
+    font-size: 22px;
+    color: #ffc5d9;
+    margin-bottom: 15px;
+}
+
+#countdown {
+    font-size: 25px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.8;
+}
+
+/* الجاليري */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* مشغل الأغنية */
+.music-box {
+    margin: 30px 0;
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 25px;
+}
+
+audio {
+    width: 100%;
+}
+
+/* النهاية */
+.footer {
+    margin-top: 35px;
+    color: #ffb3cb;
+    font-size: 17px;
+}
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .message {
+        font-size: 17px;
+    }
+
+    .gallery img {
+        height: 180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- قلوب -->
+<div class="heart" style="left:10%; animation-delay:0s;">♥</div>
+<div class="heart" style="left:25%; animation-delay:2s;">♥</div>
+<div class="heart" style="left:45%; animation-delay:4s;">♥</div>
+<div class="heart" style="left:65%; animation-delay:1s;">♥</div>
+<div class="heart" style="left:85%; animation-delay:3s;">♥</div>
+
+
+<!-- شاشة الباسورد -->
+
+<section id="login">
+
+    <div class="login-box">
+
+        <div style="font-size:60px;">❤️</div>
+
+        <h1>من محمود لأمنية</h1>
+
+        <p>
+            أجمل حاجة في حياتي ❤️
+            <br>
+            عندي ليكي حاجة صغيرة
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="اكتبي الباسورد"
+            inputmode="numeric"
+        >
+
+        <button onclick="openPage()">
+            افتحي رسالتك ❤️
+        </button>
+
+        <div id="error">
+            الباسورد غلط يا أمنية ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- الصفحة -->
+
+<section id="content">
+
+    <div class="container">
+
+        <div style="font-size:50px;">❤️</div>
+
+        <h1>من محمود لأمنية</h1>
+
+        <div class="subtitle">
+            أجمل حاجة في حياتي ❤️
+        </div>
+
+
+        <!-- الصورة الرئيسية -->
+
+        <img
+            class="main-photo"
+            src="IMG-20260527-WA0068.jpg"
+            alt="محمود وأمنية"
+        >
+
+
+        <!-- الرسالة -->
+
+        <div class="message">
+
+            <div class="big">
+                20 / 8 / 2021 ❤️
+            </div>
+
+            <p>
+                كل سنة وإنتِ حبيبتي ومراتي
+                وأجمل حاجة حصلت في حياتي ❤️
+            </p>
+
+            <p>
+                كل سنة وإحنا مع بعض،
+                وكل سنة وإنتِ سندي وراحتي وأماني.
+            </p>
+
+            <p>
+                ربنا يخليكي ليا،
+                ويديم بينا المودة والرحمة،
+                ويجمعنا دايمًا على خير وحب.
+            </p>
+
+            <p>
+                عيد جواز سعيد علينا يا حبيبتي ❤️💍
+            </p>
+
+            <div class="big">
+                محمود ❤️ أمنية
+            </div>
+
+        </div>
+
+
+        <!-- العداد -->
+
+        <div class="countdown-box">
+
+            <div class="countdown-title">
+                باقي على عيد جوازنا ❤️
+            </div>
+
+            <div id="countdown">
+                جاري الحساب...
+            </div>
+
+        </div>
+
+
+        <!-- الأغنية -->
+
+        <div class="music-box">
+
+            <div style="font-size:22px; margin-bottom:15px;">
+                🎵 أغنية مخصوص لأمنية ❤️
+            </div>
+
+            <audio id="music" controls>
+                <source src="حبيتك امنيه.mp3" type="audio/mpeg">
+                المتصفح لا يدعم تشغيل الصوت.
+            </audio>
+
+        </div>
+
+
+        <!-- صور إضافية -->
+
+        <h2 style="margin-top:35px;">
+            ذكرياتنا ❤️
+        </h2>
+
+        <div class="gallery">
+
+            <img src="1.jpg" alt="ذكرى">
+
+            <img src="3.jpg" alt="ذكرى">
+
+            <img src="1785591711299.png" alt="ذكرى">
+
+        </div>
+
+
+        <div class="footer">
+            بحبك ❤️
+            <br>
+            محمود
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* الباسورد */
+
+function openPage() {
+
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (password === "2082021") {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        // تشغيل الأغنية بعد فتح الصفحة
+        const music = document.getElementById("music");
+
+        music.play().catch(function() {
+            // بعض المتصفحات تمنع التشغيل التلقائي
+        });
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+}
+
+
+/* السماح بالضغط Enter */
+
+document.getElementById("password").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        openPage();
+    }
+
+});
+
+
+/* العداد */
+
+function updateCountdown() {
+
+    // عيد الجواز: 20 أغسطس 2026
+    const target = new Date("2026-08-20T00:00:00").getTime();
+
+    const now = new Date().getTime();
+
+    const difference = target - now;
+
+    const countdown = document.getElementById("countdown");
+
+    if (difference <= 0) {
+
+        countdown.innerHTML =
+            "🎉 النهارده عيد جوازنا ❤️💍<br>كل سنة وإنتِ معايا يا أمنية ❤️";
+
+        return;
+    }
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (difference % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (difference % (1000 * 60))
+        / 1000
+    );
+
+    countdown.innerHTML =
+        days + " يوم ❤️ " +
+        hours + " ساعة ❤️ " +
+        minutes + " دقيقة ❤️ " +
+        seconds + " ثانية";
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
