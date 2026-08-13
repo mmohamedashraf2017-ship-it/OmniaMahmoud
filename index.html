@@ -1,1 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>من محمود لأمنية ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:linear-gradient(180deg,#520021,#16000b);
+    color:white;
+    font-family:Tahoma,Arial,sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.container{
+    width:92%;
+    max-width:700px;
+    margin:auto;
+    padding:35px 0 60px;
+}
+
+h1{
+    font-size:34px;
+    margin:10px 0;
+}
+
+.subtitle{
+    font-size:25px;
+    margin-bottom:25px;
+    color:#ffd6e4;
+}
+
+.card{
+    background:rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:25px;
+    margin:25px 0;
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
+}
+
+.photo-box{
+    position:relative;
+    width:100%;
+    height:500px;
+    overflow:hidden;
+    border-radius:28px;
+    background:#26000f;
+}
+
+.photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:none;
+    animation:fade .8s ease;
+}
+
+.photo.active{
+    display:block;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(1.03);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+button{
+    border:none;
+    background:#ff3d70;
+    color:white;
+    padding:12px 22px;
+    border-radius:25px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+.dots{
+    margin-top:15px;
+}
+
+.dot{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background:#777;
+    border-radius:50%;
+    margin:4px;
+}
+
+.dot.active{
+    background:#ff4d7d;
+}
+
+.date{
+    font-size:30px;
+    font-weight:bold;
+    color:#ff9fba;
+}
+
+.message{
+    font-size:22px;
+    line-height:2;
+    color:#fff0f5;
+}
+
+.audio-title{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+audio{
+    width:100%;
+}
+
+.footer{
+    font-size:25px;
+    margin-top:40px;
+    color:#ffb6c9;
+}
+
+/* قلوب */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:25px;
+    animation:float 7s linear infinite;
+    opacity:.7;
+    pointer-events:none;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    20%{
+        opacity:.8;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* شاشة الباسورد */
+
+#lock{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(180deg,#520021,#16000b);
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+}
+
+.lock-box{
+    width:100%;
+    max-width:400px;
+    background:rgba(255,255,255,.09);
+    padding:35px 25px;
+    border-radius:30px;
+}
+
+.lock-box h2{
+    font-size:30px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:20px;
+    text-align:center;
+    font-size:20px;
+    margin:15px 0;
+    outline:none;
+}
+
+#error{
+    color:#ff9aae;
+    display:none;
+    margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- شاشة الباسورد -->
+
+<div id="lock">
+
+    <div class="lock-box">
+
+        <div style="font-size:60px;">❤️</div>
+
+        <h2>من محمود لأمنية</h2>
+
+        <p>أجمل حاجة في حياتي ❤️</p>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="اكتبي الباسورد"
+        >
+
+        <button onclick="unlock()">
+            دخول ❤️
+        </button>
+
+        <div id="error">
+            الباسورد غلط يا أمنية ❤️
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>من محمود لأمنية ❤️</h1>
+
+    <div class="subtitle">
+        أجمل حاجة في حياتي ❤️
+    </div>
+
+
+    <!-- الصور -->
+
+    <div class="card">
+
+        <div class="photo-box">
+
+            <img
+                class="photo active"
+                src="img1.png"
+                alt="ذكرياتنا"
+            >
+
+            <img
+                class="photo"
+                src="img2.jpg"
+                alt="ذكرياتنا"
+            >
+
+            <img
+                class="photo"
+                src="img3.jpg"
+                alt="ذكرياتنا"
+            >
+
+            <img
+                class="photo"
+                src="img4.jpg"
+                alt="ذكرياتنا"
+            >
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button onclick="prevPhoto()">
+                ❮ السابقة
+            </button>
+
+            <button onclick="nextPhoto()">
+                التالية ❯
+            </button>
+
+        </div>
+
+
+        <div class="dots">
+
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- تاريخ الزواج -->
+
+    <div class="card">
+
+        <div class="date">
+            ❤️ 20 / 8 / 2021
+        </div>
+
+        <p class="message">
+
+            كل سنة وإنتِ حبيبتي ومراتي
+            وأجمل حاجة حصلت في حياتي ❤️
+
+            <br>
+
+            كل سنة وإحنا مع بعض،
+            وكل سنة وإنتِ سندي وراحتي وأماني
+
+            <br>
+
+            ربنا يخليكي ليا،
+            ويديم بينا المودة والرحمة،
+            ويجمعنا دايمًا على خير وحب.
+
+            <br>
+
+            عيد جواز سعيد علينا يا حبيبتي ❤️💍
+
+        </p>
+
+    </div>
+
+
+    <!-- الأغنية -->
+
+    <div class="card">
+
+        <div class="audio-title">
+            🎵 أغنية مخصوص لأمنية ❤️
+        </div>
+
+        <audio controls>
+
+            <source src="song.mp3" type="audio/mpeg">
+
+            المتصفح لا يدعم تشغيل الأغنية.
+
+        </audio>
+
+    </div>
+
+
+    <div class="footer">
+
+        ❤️ بحبك ❤️
+
+        <br>
+
+        محمود
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* الباسورد */
+
+function unlock(){
+
+    const password =
+        document.getElementById("password").value;
+
+    if(password === "2082021"){
+
+        document.getElementById("lock").style.display="none";
+
+    }else{
+
+        document.getElementById("error").style.display="block";
+
+    }
+
+}
+
+
+/* الصور */
+
+let currentPhoto = 0;
+
+const photos =
+    document.querySelectorAll(".photo");
+
+const dots =
+    document.querySelectorAll(".dot");
+
+
+function showPhoto(index){
+
+    if(index >= photos.length){
+        currentPhoto = 0;
+    }
+
+    if(index < 0){
+        currentPhoto = photos.length - 1;
+    }
+
+    photos.forEach(function(photo){
+        photo.classList.remove("active");
+    });
+
+    dots.forEach(function(dot){
+        dot.classList.remove("active");
+    });
+
+    photos[currentPhoto].classList.add("active");
+
+    dots[currentPhoto].classList.add("active");
+
+}
+
+
+function nextPhoto(){
+
+    currentPhoto++;
+
+    if(currentPhoto >= photos.length){
+        currentPhoto = 0;
+    }
+
+    showPhoto(currentPhoto);
+
+}
+
+
+function prevPhoto(){
+
+    currentPhoto--;
+
+    if(currentPhoto < 0){
+        currentPhoto = photos.length - 1;
+    }
+
+    showPhoto(currentPhoto);
+
+}
+
+
+/* تقليب تلقائي كل 3 ثواني */
+
+setInterval(function(){
+
+    nextPhoto();
+
+},3000);
+
+
+/* قلوب متحركة */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left =
+        Math.random()*100 + "%";
+
+    heart.style.animationDuration =
+        (5 + Math.random()*5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random()*25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+
+        heart.remove();
+
+    },10000);
+
+}
+
+setInterval(createHeart,700);
+
+</script>
+
+</body>
+</html>
