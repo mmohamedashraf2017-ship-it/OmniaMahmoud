@@ -1,419 +1,815 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>من محمود لأمنية ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
+    min-height: 100vh;
     font-family: Tahoma, Arial, sans-serif;
     color: white;
-    background: linear-gradient(180deg, #7b163f, #210812);
-    min-height: 100vh;
+
+    background:
+    radial-gradient(circle at top,
+    #801d47 0%,
+    #3c1028 45%,
+    #10050c 100%);
+
+    overflow-x: hidden;
 }
 
-/* شاشة الدخول */
-#login {
+/* =========================
+   القلوب المتحركة
+========================= */
+
+.heart {
     position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: linear-gradient(180deg, #8b1e4d, #1d0711);
-}
-
-.login-box {
-    width: 100%;
-    max-width: 400px;
-    padding: 35px 25px;
-    text-align: center;
-    border-radius: 30px;
-    background: rgba(255,255,255,0.12);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-}
-
-.login-box .heart {
-    font-size: 65px;
-}
-
-.login-box h1 {
+    bottom: -50px;
+    color: rgba(255, 120, 170, 0.25);
     font-size: 28px;
-    margin: 15px 0 8px;
+    animation: floatHeart 9s linear infinite;
+    z-index: 0;
 }
 
-.login-box p {
-    font-size: 17px;
-    line-height: 1.8;
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+
 }
 
-#password {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 15px;
-    outline: none;
-    text-align: center;
-    font-size: 20px;
-    margin: 15px 0;
-}
-
-#enter {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 15px;
-    background: white;
-    color: #9b2055;
-    font-size: 19px;
-    font-weight: bold;
-}
-
-#error {
-    display: none;
-    margin-top: 15px;
-    color: #ffd0df;
-}
-
-/* الموقع */
-#site {
-    display: none;
-}
+/* =========================
+   الحاوية
+========================= */
 
 .container {
     width: 92%;
-    max-width: 750px;
+    max-width: 600px;
     margin: auto;
+    position: relative;
+    z-index: 2;
 }
 
-.hero {
+/* =========================
+   شاشة الباسورد
+========================= */
+
+#login {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+
+    width: 100%;
+
+    padding: 35px 25px;
+
     text-align: center;
-    padding: 45px 10px 25px;
+
+    border-radius: 28px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
+
+    backdrop-filter: blur(12px);
 }
 
-.hero .heart {
+.login-heart {
     font-size: 65px;
+    margin-bottom: 10px;
 }
 
-.hero h1 {
-    font-size: 34px;
-    margin: 15px 0;
+.login-box h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
 }
 
-.hero h2 {
+.login-box p {
+    color: #ffd4e4;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+#password {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 16px;
+
+    text-align: center;
+
     font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+.login-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    background:
+    linear-gradient(135deg,
+    #ff5798,
+    #b81759);
+
+    cursor: pointer;
+}
+
+#error {
+
+    display: none;
+
+    margin-top: 15px;
+
+    color: #ff9fbd;
+}
+
+/* =========================
+   الموقع
+========================= */
+
+#site {
+    display: none;
+
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+/* =========================
+   العنوان
+========================= */
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.title-heart {
+
+    font-size: 60px;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+.title h1 {
+
+    font-size: 36px;
+
+    margin: 10px 0;
+}
+
+.title h2 {
+
+    color: #ffb6ce;
+
+    font-size: 20px;
+
     font-weight: normal;
 }
 
-.card {
-    margin: 25px 0;
-    padding: 25px;
+/* =========================
+   الصور
+========================= */
+
+.slider {
+
+    width: 100%;
+
+    height: 440px;
+
+    position: relative;
+
+    overflow: hidden;
+
     border-radius: 25px;
-    background: rgba(255,255,255,0.10);
-    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+
+    background: #14060d;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.5);
+
 }
 
-/* الصور */
-.gallery img {
-    display: none;
+.slider img {
+
     width: 100%;
-    max-height: 520px;
+
+    height: 100%;
+
     object-fit: cover;
-    border-radius: 22px;
+
+    display: none;
 }
 
-.gallery img.active {
+.slider img.active {
+
     display: block;
+
+    animation: fadeImage 1s;
 }
 
-.photo-title {
+@keyframes fadeImage {
+
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* النقاط */
+
+.dots {
+
     text-align: center;
-    margin-top: 15px;
-    font-size: 17px;
+
+    margin-top: -30px;
+
+    position: relative;
+
+    z-index: 5;
+
+    margin-bottom: 25px;
 }
 
-/* الرسالة */
-.message {
+.dot {
+
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+
+    margin: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.5);
+}
+
+.dot.active {
+
+    background: #ff5798;
+
+    transform: scale(1.2);
+}
+
+/* =========================
+   الكروت
+========================= */
+
+.card {
+
+    margin: 25px 0;
+
+    padding: 28px 22px;
+
+    border-radius: 25px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+    0 15px 45px rgba(0,0,0,0.3);
+
+    backdrop-filter: blur(10px);
+}
+
+.card h2 {
+
     text-align: center;
-    font-size: 20px;
-    line-height: 2.2;
-}
 
-.signature {
-    margin-top: 25px;
-    font-size: 25px;
-    font-weight: bold;
-}
+    color: #ffb6ce;
 
-/* الأغنية */
-.music {
-    text-align: center;
-}
-
-.music h2 {
-    margin-top: 0;
-}
-
-audio {
-    width: 100%;
-}
-
-/* العداد */
-.countdown-title {
-    text-align: center;
-    font-size: 22px;
     margin-bottom: 20px;
 }
 
+/* =========================
+   الرسالة
+========================= */
+
+.message {
+
+    text-align: center;
+
+    font-size: 19px;
+
+    line-height: 2.1;
+
+    color: #fff3f7;
+}
+
+.message strong {
+
+    color: #ff9fc1;
+
+    font-size: 24px;
+}
+
+/* =========================
+   الموسيقى
+========================= */
+
+.music {
+
+    text-align: center;
+}
+
+audio {
+
+    width: 100%;
+
+    margin-bottom: 15px;
+}
+
+.music-button {
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 14px 28px;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    background:
+    linear-gradient(135deg,
+    #ff5798,
+    #a91451);
+
+    cursor: pointer;
+}
+
+/* =========================
+   العداد
+========================= */
+
 .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    direction: ltr;
-    flex-wrap: wrap;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap: 8px;
 }
 
-.box {
-    min-width: 75px;
-    padding: 14px 8px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.13);
+.time {
+
     text-align: center;
+
+    padding: 15px 5px;
+
+    border-radius: 15px;
+
+    background:
+    rgba(255,255,255,0.1);
 }
 
-.box strong {
+.time strong {
+
     display: block;
-    font-size: 27px;
+
+    font-size: 25px;
+
+    color: #ff9fc1;
 }
 
-.box small {
-    font-size: 13px;
+.time span {
+
+    font-size: 12px;
+
+    color: #ffd8e6;
 }
 
-footer {
+/* =========================
+   النهاية
+========================= */
+
+.footer {
+
     text-align: center;
-    padding: 25px;
-    font-size: 16px;
+
+    color: #ffb4cd;
+
+    line-height: 2;
+
+    margin-top: 35px;
+
+    font-size: 17px;
 }
 
-@media(max-width:600px) {
+/* =========================
+   الموبايل
+========================= */
 
-    .hero h1 {
-        font-size: 29px;
+@media(max-width:500px) {
+
+    .slider {
+        height: 420px;
+    }
+
+    .title h1 {
+        font-size: 30px;
     }
 
     .message {
         font-size: 18px;
     }
 
-    .gallery img {
-        max-height: 450px;
-    }
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- قلوب -->
+
+<div class="heart" style="left:5%; animation-delay:0s;">♥</div>
+<div class="heart" style="left:18%; animation-delay:2s;">♥</div>
+<div class="heart" style="left:35%; animation-delay:4s;">♥</div>
+<div class="heart" style="left:52%; animation-delay:1s;">♥</div>
+<div class="heart" style="left:70%; animation-delay:3s;">♥</div>
+<div class="heart" style="left:88%; animation-delay:5s;">♥</div>
+
 
 <!-- =========================
      شاشة الباسورد
 ========================= -->
 
-<div id="login">
+<section id="login">
 
-    <div class="login-box">
+<div class="container">
 
-        <div class="heart">❤️</div>
+<div class="login-box">
 
-        <h1>من محمود لأمنية</h1>
+<div class="login-heart">
+❤️
+</div>
 
-        <p>
-            أجمل حاجة في حياتي ❤️
-            <br>
-            ادخلي الباسورد
-        </p>
+<h1>
+من محمود لأمنية
+</h1>
 
-        <input
-            id="password"
-            type="password"
-            placeholder="الباسورد"
-            inputmode="numeric"
-        >
+<p>
 
-        <button id="enter">
-            دخول ❤️
-        </button>
+أجمل حاجة في حياتي ❤️
 
-        <div id="error">
-            الباسورد غير صحيح ❤️
-        </div>
+<br>
 
-    </div>
+رسالة خاصة ليكي
+
+</p>
+
+<input
+type="password"
+id="password"
+placeholder="اكتبي الباسورد"
+>
+
+<button
+class="login-btn"
+onclick="login()">
+
+دخول ❤️
+
+</button>
+
+<div id="error">
+
+الباسورد غلط يا أمنية ❤️
 
 </div>
+
+</div>
+
+</div>
+
+</section>
+
 
 
 <!-- =========================
      الموقع
 ========================= -->
 
-<div id="site">
+<section id="site">
 
-    <div class="container">
-
-        <!-- المقدمة -->
-
-        <div class="hero">
-
-            <div class="heart">❤️</div>
-
-            <h1>
-                من محمود لأمنية
-            </h1>
-
-            <h2>
-                أجمل حاجة في حياتي ❤️
-            </h2>
-
-        </div>
+<div class="container">
 
 
-        <!-- الصور -->
+<!-- العنوان -->
 
-        <div class="card gallery">
+<div class="title">
 
-            <img
-                class="slide active"
-                src="1785591711299.png"
-                alt="ذكرياتنا">
+<div class="title-heart">
+❤️
+</div>
 
-            <img
-                class="slide"
-                src="IMG-20260527-WA0068.jpg"
-                alt="ذكرياتنا">
+<h1>
+من محمود لأمنية
+</h1>
 
-            <img
-                class="slide"
-                src="١.jpg"
-                alt="ذكرياتنا">
-
-            <img
-                class="slide"
-                src="٣.jpg"
-                alt="ذكرياتنا">
-
-            <div class="photo-title">
-                أجمل ذكرياتنا ❤️
-            </div>
-
-        </div>
-
-
-        <!-- الرسالة -->
-
-        <div class="card message">
-
-            <div>
-                كل سنة وإنتِ حبيبتي ومراتي
-                <br>
-                وأجمل حاجة حصلت في حياتي ❤️
-            </div>
-
-            <br>
-
-            <div>
-                كل سنة وإحنا مع بعض،
-                <br>
-                وكل سنة وإنتِ سندي وراحتي وأماني.
-            </div>
-
-            <br>
-
-            <div>
-                ربنا يخليكي ليا،
-                <br>
-                ويديم بينا المودة والرحمة،
-                <br>
-                ويجمعنا دايمًا على خير وحب.
-            </div>
-
-            <br>
-
-            <div>
-                عيد جواز سعيد علينا يا حبيبتي ❤️💍
-            </div>
-
-            <div class="signature">
-                من محمود ❤️ لأمنية
-            </div>
-
-        </div>
-
-
-        <!-- الأغنية -->
-
-        <div class="card music">
-
-            <h2>🎵 أغنيتنا</h2>
-
-            <audio controls>
-                <source src="حبيتك امنيه.mp3" type="audio/mpeg">
-            </audio>
-
-        </div>
-
-
-        <!-- العداد -->
-
-        <div class="card">
-
-            <div class="countdown-title">
-                ❤️ العد التنازلي لذكرى يومنا ❤️
-            </div>
-
-            <div class="countdown">
-
-                <div class="box">
-                    <strong id="days">0</strong>
-                    <small>يوم</small>
-                </div>
-
-                <div class="box">
-                    <strong id="hours">0</strong>
-                    <small>ساعة</small>
-                </div>
-
-                <div class="box">
-                    <strong id="minutes">0</strong>
-                    <small>دقيقة</small>
-                </div>
-
-                <div class="box">
-                    <strong id="seconds">0</strong>
-                    <small>ثانية</small>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <footer>
-            محمود ❤️ أمنية
-            <br>
-            20 / 8
-        </footer>
-
-    </div>
+<h2>
+أجمل حاجة في حياتي ❤️
+</h2>
 
 </div>
+
+
+
+<!-- =========================
+     الصور
+========================= -->
+
+<div class="slider">
+
+
+<img
+src="1785591711299.png"
+class="active"
+alt="صورة"
+>
+
+
+<img
+src="IMG-20260527-WA0068.jpg"
+alt="صورة"
+>
+
+
+<img
+src="١.jpg"
+alt="صورة"
+>
+
+
+<img
+src="٣.jpg"
+alt="صورة"
+>
+
+
+</div>
+
+
+<div class="dots">
+
+<span class="dot active"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+</div>
+
+
+
+<!-- =========================
+     الرسالة
+========================= -->
+
+<div class="card">
+
+<h2>
+إلى أمنية حبيبتي ❤️
+</h2>
+
+<div class="message">
+
+كل سنة وإنتِ حبيبتي ومراتي
+وأجمل حاجة حصلت في حياتي ❤️
+
+<br>
+
+كل سنة وإحنا مع بعض،
+وكل سنة وإنتِ سندي وراحتي وأماني.
+
+<br>
+
+ربنا يخليكي ليا،
+ويديم بينا المودة والرحمة،
+ويجمعنا دايمًا على خير وحب.
+
+<br>
+
+عيد جواز سعيد علينا يا حبيبتي ❤️💍
+
+<br><br>
+
+<strong>
+بحبك ❤️
+</strong>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     الأغنية
+========================= -->
+
+<div class="card music">
+
+<h2>
+أغنيتنا 🎵❤️
+</h2>
+
+<audio
+id="music"
+controls
+>
+
+<source
+src="حبيتك امنيه.mp3"
+type="audio/mpeg"
+>
+
+المتصفح لا يدعم تشغيل الصوت.
+
+</audio>
+
+<button
+class="music-button"
+onclick="playMusic()">
+
+▶️ شغّل الأغنية ❤️
+
+</button>
+
+</div>
+
+
+
+<!-- =========================
+     العداد
+========================= -->
+
+<div class="card">
+
+<h2>
+العداد ليومنا ❤️
+</h2>
+
+<div class="countdown">
+
+<div class="time">
+
+<strong id="days">
+0
+</strong>
+
+<span>
+يوم
+</span>
+
+</div>
+
+
+<div class="time">
+
+<strong id="hours">
+0
+</strong>
+
+<span>
+ساعة
+</span>
+
+</div>
+
+
+<div class="time">
+
+<strong id="minutes">
+0
+</strong>
+
+<span>
+دقيقة
+</span>
+
+</div>
+
+
+<div class="time">
+
+<strong id="seconds">
+0
+</strong>
+
+<span>
+ثانية
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- النهاية -->
+
+<div class="footer">
+
+محمود ❤️ أمنية
+
+<br>
+
+20 / 8
+
+<br>
+
+ربنا يديمنا لبعض ❤️💍
+
+</div>
+
+
+</div>
+
+</section>
+
 
 
 <script>
@@ -422,139 +818,239 @@ footer {
    الباسورد
 ========================= */
 
-var correctPassword = "2082021";
+function login() {
 
-var enterButton = document.getElementById("enter");
+    const password =
+    document.getElementById("password").value;
 
-var passwordInput = document.getElementById("password");
+    if (password === "2082021") {
 
-var loginScreen = document.getElementById("login");
+        document.getElementById("login")
+        .style.display = "none";
 
-var site = document.getElementById("site");
+        document.getElementById("site")
+        .style.display = "block";
 
-var error = document.getElementById("error");
-
-
-enterButton.onclick = function() {
-
-    if (passwordInput.value === correctPassword) {
-
-        loginScreen.style.display = "none";
-
-        site.style.display = "block";
+        window.scrollTo(0,0);
 
     } else {
 
-        error.style.display = "block";
-
-        passwordInput.value = "";
+        document.getElementById("error")
+        .style.display = "block";
 
     }
 
-};
+}
 
 
-passwordInput.onkeydown = function(event) {
+/* Enter للدخول */
+
+document
+.getElementById("password")
+.addEventListener(
+"keypress",
+function(event) {
 
     if (event.key === "Enter") {
 
-        enterButton.click();
+        login();
 
     }
 
-};
+});
+
 
 
 /* =========================
-   الصور
+   تشغيل الأغنية
 ========================= */
 
-var slides = document.querySelectorAll(".slide");
+function playMusic() {
 
-var current = 0;
+    const music =
+    document.getElementById("music");
+
+    music.play();
+
+}
+
+
+
+/* =========================
+   السلايدر
+========================= */
+
+let currentImage = 0;
+
+const images =
+document.querySelectorAll(
+".slider img"
+);
+
+const dots =
+document.querySelectorAll(
+".dot"
+);
+
+
+function showImage(index) {
+
+    images.forEach(function(img) {
+
+        img.classList.remove("active");
+
+    });
+
+
+    dots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    images[index]
+    .classList.add("active");
+
+    dots[index]
+    .classList.add("active");
+
+}
 
 
 setInterval(function() {
 
-    slides[current].classList.remove("active");
+    currentImage++;
 
-    current++;
+    if (
+        currentImage >= images.length
+    ) {
 
-    if (current >= slides.length) {
-        current = 0;
+        currentImage = 0;
+
     }
 
-    slides[current].classList.add("active");
+    showImage(currentImage);
 
 }, 4000);
 
 
+
 /* =========================
    العداد
+   20 أغسطس 2026
 ========================= */
 
-var target =
-    new Date("2026-08-20T00:00:00").getTime();
+const targetDate =
+new Date(
+"2026-08-20T00:00:00"
+).getTime();
 
 
 function countdown() {
 
-    var now = new Date().getTime();
+    const now =
+    new Date().getTime();
 
-    var difference = target - now;
+    const difference =
+    targetDate - now;
 
 
     if (difference <= 0) {
 
-        document.getElementById("days").innerHTML = "❤️";
-        document.getElementById("hours").innerHTML = "❤️";
-        document.getElementById("minutes").innerHTML = "❤️";
-        document.getElementById("seconds").innerHTML = "❤️";
+        document
+        .getElementById("days")
+        .innerText = "❤️";
+
+        document
+        .getElementById("hours")
+        .innerText = "❤️";
+
+        document
+        .getElementById("minutes")
+        .innerText = "❤️";
+
+        document
+        .getElementById("seconds")
+        .innerText = "❤️";
 
         return;
+
     }
 
 
-    var days =
-        Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
-
-    var hours =
-        Math.floor(
-            (difference % (1000 * 60 * 60 * 24))
-            / (1000 * 60 * 60)
-        );
-
-    var minutes =
-        Math.floor(
-            (difference % (1000 * 60 * 60))
-            / (1000 * 60)
-        );
-
-    var seconds =
-        Math.floor(
-            (difference % (1000 * 60))
-            / 1000
-        );
+    const days =
+    Math.floor(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
 
 
-    document.getElementById("days").innerHTML = days;
+    const hours =
+    Math.floor(
+        (
+            difference %
+            (1000 * 60 * 60 * 24)
+        )
+        /
+        (1000 * 60 * 60)
+    );
 
-    document.getElementById("hours").innerHTML = hours;
 
-    document.getElementById("minutes").innerHTML = minutes;
+    const minutes =
+    Math.floor(
+        (
+            difference %
+            (1000 * 60 * 60)
+        )
+        /
+        (1000 * 60)
+    );
 
-    document.getElementById("seconds").innerHTML = seconds;
+
+    const seconds =
+    Math.floor(
+        (
+            difference %
+            (1000 * 60)
+        )
+        /
+        1000
+    );
+
+
+    document
+    .getElementById("days")
+    .innerText = days;
+
+
+    document
+    .getElementById("hours")
+    .innerText = hours;
+
+
+    document
+    .getElementById("minutes")
+    .innerText = minutes;
+
+
+    document
+    .getElementById("seconds")
+    .innerText = seconds;
 
 }
 
 
 countdown();
 
-setInterval(countdown, 1000);
+setInterval(
+countdown,
+1000
+);
 
 </script>
 
+
 </body>
+
 </html>
