@@ -8,14 +8,18 @@
 <title>من محمود لأمنية ❤️</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    background:linear-gradient(180deg,#520021,#16000b);
+    min-height:100vh;
+    background:linear-gradient(180deg,#56001f 0%,#21000f 100%);
     color:white;
     font-family:Tahoma,Arial,sans-serif;
     text-align:center;
@@ -36,134 +40,161 @@ h1{
 
 .subtitle{
     font-size:25px;
+    color:#ffd5e2;
     margin-bottom:25px;
-    color:#ffd6e4;
 }
 
 .card{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.09);
     border-radius:30px;
     padding:25px;
     margin:25px 0;
-    box-shadow:0 10px 40px rgba(0,0,0,.35);
-    backdrop-filter:blur(8px);
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+/* الصور */
+
+.gallery-title{
+    font-size:26px;
+    margin-bottom:20px;
 }
 
 .photo-box{
-    position:relative;
     width:100%;
     height:500px;
+    position:relative;
     overflow:hidden;
     border-radius:28px;
     background:#26000f;
 }
 
 .photo{
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    display:none;
-    animation:fade .8s ease;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+    transform:scale(1.03);
 }
 
 .photo.active{
-    display:block;
+    opacity:1;
+    visibility:visible;
+    transform:scale(1);
 }
 
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:scale(1.03);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
+/* الأزرار */
 
 .buttons{
     display:flex;
     justify-content:space-between;
-    margin-top:15px;
+    gap:15px;
+    margin-top:18px;
 }
 
 button{
-    border:none;
-    background:#ff3d70;
+    flex:1;
+    border:0;
+    background:#ff3f72;
     color:white;
-    padding:12px 22px;
-    border-radius:25px;
+    padding:14px 15px;
+    border-radius:30px;
     font-size:18px;
+    font-weight:bold;
     cursor:pointer;
+    box-shadow:0 5px 15px rgba(255,63,114,.25);
 }
 
 button:active{
-    transform:scale(.95);
+    transform:scale(.96);
 }
 
+/* النقاط */
+
 .dots{
-    margin-top:15px;
+    margin-top:18px;
 }
 
 .dot{
     display:inline-block;
-    width:10px;
-    height:10px;
-    background:#777;
-    border-radius:50%;
+    width:11px;
+    height:11px;
     margin:4px;
+    border-radius:50%;
+    background:#777;
+    transition:.3s;
 }
 
 .dot.active{
-    background:#ff4d7d;
+    background:#ff4778;
+    transform:scale(1.25);
 }
 
+/* التاريخ والرسالة */
+
 .date{
-    font-size:30px;
-    font-weight:bold;
     color:#ff9fba;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
 .message{
-    font-size:22px;
+    font-size:21px;
     line-height:2;
     color:#fff0f5;
 }
 
+/* الصوت */
+
 .audio-title{
-    font-size:24px;
-    margin-bottom:15px;
+    font-size:25px;
+    margin-bottom:18px;
 }
 
 audio{
     width:100%;
 }
 
+/* النهاية */
+
 .footer{
-    font-size:25px;
     margin-top:40px;
-    color:#ffb6c9;
+    font-size:27px;
+    line-height:2;
+    color:#ffb4c8;
 }
 
-/* قلوب */
+/* القلوب */
 
 .heart{
     position:fixed;
-    bottom:-30px;
-    font-size:25px;
-    animation:float 7s linear infinite;
-    opacity:.7;
+    bottom:-40px;
+    z-index:1;
     pointer-events:none;
+    animation:floatHeart linear forwards;
 }
 
-@keyframes float{
+@keyframes floatHeart{
+
     0%{
-        transform:translateY(0) rotate(0);
+        transform:translateY(0) rotate(0deg);
         opacity:0;
     }
-    20%{
+
+    15%{
         opacity:.8;
     }
+
     100%{
         transform:translateY(-110vh) rotate(360deg);
         opacity:0;
@@ -172,67 +203,151 @@ audio{
 
 /* شاشة الباسورد */
 
-#lock{
+#lockScreen{
     position:fixed;
     inset:0;
-    background:linear-gradient(180deg,#520021,#16000b);
     z-index:9999;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:25px;
+
+    background:
+        radial-gradient(circle at top,#72002d,#19000c 70%);
 }
 
-.lock-box{
+.lockBox{
     width:100%;
-    max-width:400px;
+    max-width:420px;
+
     background:rgba(255,255,255,.09);
-    padding:35px 25px;
+
+    border:1px solid rgba(255,255,255,.12);
+
     border-radius:30px;
+
+    padding:35px 25px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+
+    backdrop-filter:blur(10px);
 }
 
-.lock-box h2{
+.lockHeart{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.lockBox h2{
     font-size:30px;
+    margin:10px 0;
 }
 
-input{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:20px;
-    text-align:center;
+.lockBox p{
     font-size:20px;
+    color:#ffd3df;
+}
+
+#password{
+    width:100%;
+    border:0;
+    outline:0;
+
+    padding:16px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    font-size:20px;
+
     margin:15px 0;
-    outline:none;
+
+    background:white;
+    color:#300014;
 }
 
 #error{
-    color:#ff9aae;
     display:none;
-    margin-top:10px;
+    color:#ff9bad;
+    margin-top:15px;
+    font-size:17px;
+}
+
+/* موبايل */
+
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        padding-top:25px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .subtitle{
+        font-size:23px;
+    }
+
+    .card{
+        padding:18px;
+        border-radius:28px;
+    }
+
+    .photo-box{
+        height:500px;
+    }
+
+    .date{
+        font-size:29px;
+    }
+
+    .message{
+        font-size:19px;
+    }
+
+    button{
+        font-size:17px;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
 
+
+<!-- ========================= -->
 <!-- شاشة الباسورد -->
+<!-- ========================= -->
 
-<div id="lock">
+<div id="lockScreen">
 
-    <div class="lock-box">
+    <div class="lockBox">
 
-        <div style="font-size:60px;">❤️</div>
+        <div class="lockHeart">
+            ❤️
+        </div>
 
-        <h2>من محمود لأمنية</h2>
+        <h2>
+            من محمود لأمنية
+        </h2>
 
-        <p>أجمل حاجة في حياتي ❤️</p>
+        <p>
+            أجمل حاجة في حياتي ❤️
+        </p>
 
         <input
             id="password"
             type="password"
+            inputmode="numeric"
             placeholder="اكتبي الباسورد"
+            onkeydown="if(event.key==='Enter') unlock()"
         >
 
         <button onclick="unlock()">
@@ -240,7 +355,7 @@ input{
         </button>
 
         <div id="error">
-            الباسورد غلط يا أمنية ❤️
+            الباسورد غلط ❤️
         </div>
 
     </div>
@@ -248,42 +363,59 @@ input{
 </div>
 
 
+<!-- ========================= -->
+<!-- محتوى الموقع -->
+<!-- ========================= -->
+
 <div class="container">
 
-    <h1>من محمود لأمنية ❤️</h1>
+    <h1>
+        من محمود لأمنية ❤️
+    </h1>
 
     <div class="subtitle">
         أجمل حاجة في حياتي ❤️
     </div>
 
 
-    <!-- الصور -->
+    <!-- ========================= -->
+    <!-- معرض الصور -->
+    <!-- ========================= -->
 
     <div class="card">
 
+        <div class="gallery-title">
+            ❤️ ذكرياتنا ❤️
+        </div>
+
+
         <div class="photo-box">
 
+            <!-- الصورة الأولى -->
             <img
                 class="photo active"
-                src="img1.png"
+                src="1785591711299.png"
                 alt="ذكرياتنا"
             >
 
+            <!-- الصورة الثانية -->
             <img
                 class="photo"
-                src="img2.jpg"
+                src="IMG-20260527-WA0068.jpg"
                 alt="ذكرياتنا"
             >
 
+            <!-- الصورة الثالثة -->
             <img
                 class="photo"
-                src="img3.jpg"
+                src="١.jpg"
                 alt="ذكرياتنا"
             >
 
+            <!-- الصورة الرابعة -->
             <img
                 class="photo"
-                src="img4.jpg"
+                src="٣.jpg"
                 alt="ذكرياتنا"
             >
 
@@ -292,7 +424,7 @@ input{
 
         <div class="buttons">
 
-            <button onclick="prevPhoto()">
+            <button onclick="previousPhoto()">
                 ❮ السابقة
             </button>
 
@@ -315,15 +447,17 @@ input{
     </div>
 
 
+    <!-- ========================= -->
     <!-- تاريخ الزواج -->
+    <!-- ========================= -->
 
     <div class="card">
 
         <div class="date">
-            ❤️ 20 / 8 / 2021
+            ❤️ 2021 / 8 / 20 ❤️
         </div>
 
-        <p class="message">
+        <div class="message">
 
             كل سنة وإنتِ حبيبتي ومراتي
             وأجمل حاجة حصلت في حياتي ❤️
@@ -343,12 +477,14 @@ input{
 
             عيد جواز سعيد علينا يا حبيبتي ❤️💍
 
-        </p>
+        </div>
 
     </div>
 
 
+    <!-- ========================= -->
     <!-- الأغنية -->
+    <!-- ========================= -->
 
     <div class="card">
 
@@ -356,16 +492,23 @@ input{
             🎵 أغنية مخصوص لأمنية ❤️
         </div>
 
-        <audio controls>
+        <audio controls preload="metadata">
 
-            <source src="song.mp3" type="audio/mpeg">
+            <source
+                src="حبيتك امنيه.mp3"
+                type="audio/mpeg"
+            >
 
-            المتصفح لا يدعم تشغيل الأغنية.
+            المتصفح لا يدعم تشغيل الصوت.
 
         </audio>
 
     </div>
 
+
+    <!-- ========================= -->
+    <!-- النهاية -->
+    <!-- ========================= -->
 
     <div class="footer">
 
@@ -382,27 +525,36 @@ input{
 
 <script>
 
+/* ================================= */
 /* الباسورد */
+/* ================================= */
 
 function unlock(){
 
     const password =
         document.getElementById("password").value;
 
+    const error =
+        document.getElementById("error");
+
     if(password === "2082021"){
 
-        document.getElementById("lock").style.display="none";
+        document.getElementById("lockScreen").style.display = "none";
+
+        error.style.display = "none";
 
     }else{
 
-        document.getElementById("error").style.display="block";
+        error.style.display = "block";
 
     }
 
 }
 
 
-/* الصور */
+/* ================================= */
+/* معرض الصور */
+/* ================================= */
 
 let currentPhoto = 0;
 
@@ -424,26 +576,39 @@ function showPhoto(index){
     }
 
     photos.forEach(function(photo){
+
         photo.classList.remove("active");
+
     });
+
 
     dots.forEach(function(dot){
+
         dot.classList.remove("active");
+
     });
 
-    photos[currentPhoto].classList.add("active");
 
-    dots[currentPhoto].classList.add("active");
+    photos[currentPhoto]
+        .classList.add("active");
+
+
+    dots[currentPhoto]
+        .classList.add("active");
 
 }
 
+
+/* التالية */
 
 function nextPhoto(){
 
     currentPhoto++;
 
     if(currentPhoto >= photos.length){
+
         currentPhoto = 0;
+
     }
 
     showPhoto(currentPhoto);
@@ -451,12 +616,16 @@ function nextPhoto(){
 }
 
 
-function prevPhoto(){
+/* السابقة */
+
+function previousPhoto(){
 
     currentPhoto--;
 
     if(currentPhoto < 0){
+
         currentPhoto = photos.length - 1;
+
     }
 
     showPhoto(currentPhoto);
@@ -464,36 +633,41 @@ function prevPhoto(){
 }
 
 
-/* تقليب تلقائي كل 3 ثواني */
+/* ================================= */
+/* التقليب التلقائي */
+/* ================================= */
 
 setInterval(function(){
 
     nextPhoto();
 
-},3000);
+},4000);
 
 
-/* قلوب متحركة */
+/* ================================= */
+/* القلوب المتحركة */
+/* ================================= */
 
 function createHeart(){
 
     const heart =
         document.createElement("div");
 
-    heart.className="heart";
+    heart.className = "heart";
 
-    heart.innerHTML="❤️";
+    heart.innerHTML = "❤️";
 
     heart.style.left =
-        Math.random()*100 + "%";
-
-    heart.style.animationDuration =
-        (5 + Math.random()*5) + "s";
+        Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        (15 + Math.random()*25) + "px";
+        (18 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
 
     document.body.appendChild(heart);
+
 
     setTimeout(function(){
 
@@ -503,7 +677,8 @@ function createHeart(){
 
 }
 
-setInterval(createHeart,700);
+
+setInterval(createHeart,800);
 
 </script>
 
