@@ -1,516 +1,560 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>من محمود لأمنية ❤️</title>
 
 <style>
-
-/* =========================
-   إعدادات عامة
-========================= */
-
 * {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
-    min-height: 100vh;
-
-    font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
+    font-family: Tahoma, Arial, sans-serif;
     color: white;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #761d43 0%,
-            #32101f 45%,
-            #090307 100%
-        );
-
-    overflow-x: hidden;
-}
-
-
-/* قلوب خلفية */
-
-body::before {
-    content:
-        "❤️   ❤️   ❤️   ❤️   ❤️   ❤️   ❤️";
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-
-    font-size: 28px;
-
-    line-height: 90px;
-
-    opacity: 0.06;
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-
-/* =========================
-   الحاوية
-========================= */
-
-.container {
-
-    width: 92%;
-
-    max-width: 700px;
-
-    margin: auto;
-
-    padding:
-        30px
-        0
-        60px;
-}
-
-
-/* =========================
-   شاشة الباسورد
-========================= */
-
-#login {
-
+    background: linear-gradient(180deg, #7b163f, #210812);
     min-height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
 }
 
+/* شاشة الدخول */
+#login {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(180deg, #8b1e4d, #1d0711);
+}
 
 .login-box {
-
     width: 100%;
-
-    padding:
-        40px
-        25px;
-
+    max-width: 400px;
+    padding: 35px 25px;
     text-align: center;
-
     border-radius: 30px;
-
-    background:
-        rgba(255,255,255,0.09);
-
-    backdrop-filter: blur(15px);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    box-shadow:
-        0 20px 70px
-        rgba(0,0,0,0.55);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
 }
 
-
-.login-heart {
-
-    font-size: 70px;
-
-    animation:
-        heartBeat 1.2s infinite;
+.login-box .heart {
+    font-size: 65px;
 }
-
-
-@keyframes heartBeat {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
-
 
 .login-box h1 {
-
-    margin:
-        10px 0;
-
-    font-size: 30px;
+    font-size: 28px;
+    margin: 15px 0 8px;
 }
 
-
 .login-box p {
-
-    color:
-        #ffd5e2;
-
     font-size: 17px;
-
     line-height: 1.8;
 }
 
-
-/* خانة الباسورد */
-
 #password {
-
     width: 100%;
-
-    padding: 16px;
-
-    margin-top: 15px;
-
+    padding: 15px;
     border: none;
-
+    border-radius: 15px;
     outline: none;
-
-    border-radius: 15px;
-
-    font-size: 20px;
-
     text-align: center;
-
-    background:
-        rgba(255,255,255,0.96);
+    font-size: 20px;
+    margin: 15px 0;
 }
 
-
-/* زر الدخول */
-
-.login-button {
-
+#enter {
     width: 100%;
-
-    padding: 16px;
-
-    margin-top: 15px;
-
+    padding: 15px;
     border: none;
-
     border-radius: 15px;
-
-    font-size: 18px;
-
+    background: white;
+    color: #9b2055;
+    font-size: 19px;
     font-weight: bold;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff5b8a,
-            #c9184a
-        );
-
-    cursor: pointer;
 }
-
-
-.login-button:active {
-
-    transform: scale(0.98);
-}
-
 
 #error {
-
     display: none;
-
     margin-top: 15px;
-
-    color:
-        #ff9eb8;
-
-    font-size: 15px;
+    color: #ffd0df;
 }
 
-
-/* =========================
-   الصفحة الرئيسية
-========================= */
-
-#page {
-
+/* الموقع */
+#site {
     display: none;
 }
 
-
-/* =========================
-   الهيدر
-========================= */
-
-.header {
-
-    text-align: center;
-
-    padding:
-        25px
-        0
-        10px;
+.container {
+    width: 92%;
+    max-width: 750px;
+    margin: auto;
 }
 
+.hero {
+    text-align: center;
+    padding: 45px 10px 25px;
+}
 
-.main-heart {
-
+.hero .heart {
     font-size: 65px;
-
-    animation:
-        heartBeat 1.2s infinite;
 }
 
-
-.header h1 {
-
-    margin:
-        10px 0;
-
-    font-size: 36px;
+.hero h1 {
+    font-size: 34px;
+    margin: 15px 0;
 }
 
-
-.header h2 {
-
-    margin:
-        5px 0;
-
-    color:
-        #ffc4d5;
-
+.hero h2 {
+    font-size: 20px;
     font-weight: normal;
-
-    font-size: 21px;
 }
 
-
-.date-badge {
-
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding:
-        10px
-        20px;
-
-    border-radius: 30px;
-
-    background:
-        rgba(255,255,255,0.1);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.15);
-
-    color:
-        #ffd4e0;
+.card {
+    margin: 25px 0;
+    padding: 25px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
 }
 
-
-/* =========================
-   معرض الصور
-========================= */
-
-.gallery {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 14px;
-
-    margin-top: 30px;
-}
-
-
+/* الصور */
 .gallery img {
-
+    display: none;
     width: 100%;
-
-    height: 260px;
-
+    max-height: 520px;
     object-fit: cover;
-
     border-radius: 22px;
-
-    border:
-        2px solid
-        rgba(255,255,255,0.16);
-
-    box-shadow:
-        0 12px 35px
-        rgba(0,0,0,0.45);
-
-    transition:
-        transform 0.3s;
 }
 
-
-.gallery img:hover {
-
-    transform:
-        scale(1.03);
+.gallery img.active {
+    display: block;
 }
 
-
-/* الصورة الأولى أكبر */
-
-.gallery img:first-child {
-
-    grid-column:
-        span 2;
-
-    height: 360px;
+.photo-title {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 17px;
 }
+
+/* الرسالة */
+.message {
+    text-align: center;
+    font-size: 20px;
+    line-height: 2.2;
+}
+
+.signature {
+    margin-top: 25px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* الأغنية */
+.music {
+    text-align: center;
+}
+
+.music h2 {
+    margin-top: 0;
+}
+
+audio {
+    width: 100%;
+}
+
+/* العداد */
+.countdown-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    direction: ltr;
+    flex-wrap: wrap;
+}
+
+.box {
+    min-width: 75px;
+    padding: 14px 8px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.13);
+    text-align: center;
+}
+
+.box strong {
+    display: block;
+    font-size: 27px;
+}
+
+.box small {
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 16px;
+}
+
+@media(max-width:600px) {
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .gallery img {
+        max-height: 450px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     شاشة الباسورد
+========================= -->
+
+<div id="login">
+
+    <div class="login-box">
+
+        <div class="heart">❤️</div>
+
+        <h1>من محمود لأمنية</h1>
+
+        <p>
+            أجمل حاجة في حياتي ❤️
+            <br>
+            ادخلي الباسورد
+        </p>
+
+        <input
+            id="password"
+            type="password"
+            placeholder="الباسورد"
+            inputmode="numeric"
+        >
+
+        <button id="enter">
+            دخول ❤️
+        </button>
+
+        <div id="error">
+            الباسورد غير صحيح ❤️
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     الموقع
+========================= -->
+
+<div id="site">
+
+    <div class="container">
+
+        <!-- المقدمة -->
+
+        <div class="hero">
+
+            <div class="heart">❤️</div>
+
+            <h1>
+                من محمود لأمنية
+            </h1>
+
+            <h2>
+                أجمل حاجة في حياتي ❤️
+            </h2>
+
+        </div>
+
+
+        <!-- الصور -->
+
+        <div class="card gallery">
+
+            <img
+                class="slide active"
+                src="1785591711299.png"
+                alt="ذكرياتنا">
+
+            <img
+                class="slide"
+                src="IMG-20260527-WA0068.jpg"
+                alt="ذكرياتنا">
+
+            <img
+                class="slide"
+                src="١.jpg"
+                alt="ذكرياتنا">
+
+            <img
+                class="slide"
+                src="٣.jpg"
+                alt="ذكرياتنا">
+
+            <div class="photo-title">
+                أجمل ذكرياتنا ❤️
+            </div>
+
+        </div>
+
+
+        <!-- الرسالة -->
+
+        <div class="card message">
+
+            <div>
+                كل سنة وإنتِ حبيبتي ومراتي
+                <br>
+                وأجمل حاجة حصلت في حياتي ❤️
+            </div>
+
+            <br>
+
+            <div>
+                كل سنة وإحنا مع بعض،
+                <br>
+                وكل سنة وإنتِ سندي وراحتي وأماني.
+            </div>
+
+            <br>
+
+            <div>
+                ربنا يخليكي ليا،
+                <br>
+                ويديم بينا المودة والرحمة،
+                <br>
+                ويجمعنا دايمًا على خير وحب.
+            </div>
+
+            <br>
+
+            <div>
+                عيد جواز سعيد علينا يا حبيبتي ❤️💍
+            </div>
+
+            <div class="signature">
+                من محمود ❤️ لأمنية
+            </div>
+
+        </div>
+
+
+        <!-- الأغنية -->
+
+        <div class="card music">
+
+            <h2>🎵 أغنيتنا</h2>
+
+            <audio controls>
+                <source src="حبيتك امنيه.mp3" type="audio/mpeg">
+            </audio>
+
+        </div>
+
+
+        <!-- العداد -->
+
+        <div class="card">
+
+            <div class="countdown-title">
+                ❤️ العد التنازلي لذكرى يومنا ❤️
+            </div>
+
+            <div class="countdown">
+
+                <div class="box">
+                    <strong id="days">0</strong>
+                    <small>يوم</small>
+                </div>
+
+                <div class="box">
+                    <strong id="hours">0</strong>
+                    <small>ساعة</small>
+                </div>
+
+                <div class="box">
+                    <strong id="minutes">0</strong>
+                    <small>دقيقة</small>
+                </div>
+
+                <div class="box">
+                    <strong id="seconds">0</strong>
+                    <small>ثانية</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+            محمود ❤️ أمنية
+            <br>
+            20 / 8
+        </footer>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   الباسورد
+========================= */
+
+var correctPassword = "2082021";
+
+var enterButton = document.getElementById("enter");
+
+var passwordInput = document.getElementById("password");
+
+var loginScreen = document.getElementById("login");
+
+var site = document.getElementById("site");
+
+var error = document.getElementById("error");
+
+
+enterButton.onclick = function() {
+
+    if (passwordInput.value === correctPassword) {
+
+        loginScreen.style.display = "none";
+
+        site.style.display = "block";
+
+    } else {
+
+        error.style.display = "block";
+
+        passwordInput.value = "";
+
+    }
+
+};
+
+
+passwordInput.onkeydown = function(event) {
+
+    if (event.key === "Enter") {
+
+        enterButton.click();
+
+    }
+
+};
 
 
 /* =========================
-   الرسالة
+   الصور
 ========================= */
 
-.letter {
+var slides = document.querySelectorAll(".slide");
 
-    margin-top: 30px;
-
-    padding:
-        30px
-        22px;
-
-    border-radius: 27px;
-
-    background:
-        rgba(255,255,255,0.09);
-
-    backdrop-filter:
-        blur(12px);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.13);
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,0.35);
-}
+var current = 0;
 
 
-.letter h2 {
+setInterval(function() {
 
-    text-align: center;
+    slides[current].classList.remove("active");
 
-    margin-top: 0;
+    current++;
 
-    color:
-        #ffabc2;
+    if (current >= slides.length) {
+        current = 0;
+    }
 
-    font-size: 26px;
-}
+    slides[current].classList.add("active");
 
-
-.letter p {
-
-    text-align: center;
-
-    font-size: 19px;
-
-    line-height: 2.1;
-
-    color:
-        #fff3f6;
-
-    margin-bottom: 0;
-}
+}, 4000);
 
 
 /* =========================
    العداد
 ========================= */
 
-.counter {
+var target =
+    new Date("2026-08-20T00:00:00").getTime();
 
-    margin-top: 30px;
 
-    padding:
-        28px
-        15px;
+function countdown() {
 
-    border-radius: 27px;
+    var now = new Date().getTime();
 
-    text-align: center;
+    var difference = target - now;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,60,110,0.20),
-            rgba(100,10,50,0.30)
+
+    if (difference <= 0) {
+
+        document.getElementById("days").innerHTML = "❤️";
+        document.getElementById("hours").innerHTML = "❤️";
+        document.getElementById("minutes").innerHTML = "❤️";
+        document.getElementById("seconds").innerHTML = "❤️";
+
+        return;
+    }
+
+
+    var days =
+        Math.floor(
+            difference / (1000 * 60 * 60 * 24)
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,0.12);
+    var hours =
+        Math.floor(
+            (difference % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    var minutes =
+        Math.floor(
+            (difference % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    var seconds =
+        Math.floor(
+            (difference % (1000 * 60))
+            / 1000
+        );
+
+
+    document.getElementById("days").innerHTML = days;
+
+    document.getElementById("hours").innerHTML = hours;
+
+    document.getElementById("minutes").innerHTML = minutes;
+
+    document.getElementById("seconds").innerHTML = seconds;
+
 }
 
 
-.counter h2 {
+countdown();
 
-    margin-top: 0;
+setInterval(countdown, 1000);
 
-    color:
-        #ffc4d5;
-}
+</script>
 
-
-.counter p {
-
-    color:
-        #ffd8e3;
-
-    font-size: 17px;
-}
-
-
-.timer {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap: 8px;
-
-    margin-top: 20px;
-}
-
-
-.time-box {
-
-    padding:
-        14
+</body>
+</html>
