@@ -8,6 +8,7 @@
 <title>من محمود لأمنية ❤️</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -19,18 +20,34 @@ html{
 body{
     margin:0;
     min-height:100vh;
-    background:linear-gradient(180deg,#56001f 0%,#21000f 100%);
+
+    background:
+    linear-gradient(
+        180deg,
+        #56001f 0%,
+        #21000f 100%
+    );
+
     color:white;
-    font-family:Tahoma,Arial,sans-serif;
+
+    font-family:
+    Tahoma,
+    Arial,
+    sans-serif;
+
     text-align:center;
+
     overflow-x:hidden;
 }
 
 .container{
-    width:92%;
+    width:94%;
     max-width:700px;
+
     margin:auto;
-    padding:35px 0 60px;
+
+    padding:
+    35px 0 60px;
 }
 
 h1{
@@ -45,15 +62,28 @@ h1{
 }
 
 .card{
-    background:rgba(255,255,255,.09);
+    background:
+    rgba(255,255,255,.09);
+
     border-radius:30px;
+
     padding:25px;
+
     margin:25px 0;
-    box-shadow:0 10px 35px rgba(0,0,0,.3);
-    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+    0 10px 35px
+    rgba(0,0,0,.3);
+
+    border:
+    1px solid
+    rgba(255,255,255,.06);
 }
 
-/* الصور */
+
+/* ========================= */
+/* معرض الصور */
+/* ========================= */
 
 .gallery-title{
     font-size:26px;
@@ -61,133 +91,217 @@ h1{
 }
 
 .photo-box{
+
     width:100%;
+
     height:500px;
+
     position:relative;
+
     overflow:hidden;
+
     border-radius:28px;
+
     background:#26000f;
 }
 
 .photo{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
 
     opacity:0;
+
     visibility:hidden;
 
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+    opacity .7s ease,
+    transform .7s ease;
 
     transform:scale(1.03);
 }
 
 .photo.active{
+
     opacity:1;
+
     visibility:visible;
+
     transform:scale(1);
 }
 
+
+/* ========================= */
 /* الأزرار */
+/* ========================= */
 
 .buttons{
+
     display:flex;
+
     justify-content:space-between;
+
     gap:15px;
+
     margin-top:18px;
 }
 
 button{
+
     flex:1;
+
     border:0;
+
     background:#ff3f72;
+
     color:white;
-    padding:14px 15px;
+
+    padding:15px;
+
     border-radius:30px;
+
     font-size:18px;
+
     font-weight:bold;
+
     cursor:pointer;
-    box-shadow:0 5px 15px rgba(255,63,114,.25);
+
+    box-shadow:
+    0 5px 15px
+    rgba(255,63,114,.25);
 }
 
 button:active{
+
     transform:scale(.96);
 }
 
+
+/* ========================= */
 /* النقاط */
+/* ========================= */
 
 .dots{
+
     margin-top:18px;
 }
 
 .dot{
+
     display:inline-block;
+
     width:11px;
     height:11px;
+
     margin:4px;
+
     border-radius:50%;
+
     background:#777;
+
     transition:.3s;
 }
 
 .dot.active{
+
     background:#ff4778;
-    transform:scale(1.25);
+
+    transform:scale(1.3);
 }
 
+
+/* ========================= */
 /* التاريخ والرسالة */
+/* ========================= */
 
 .date{
+
     color:#ff9fba;
+
     font-size:32px;
+
     font-weight:bold;
+
     margin-bottom:20px;
 }
 
 .message{
+
     font-size:21px;
+
     line-height:2;
+
     color:#fff0f5;
 }
 
+
+/* ========================= */
 /* الصوت */
+/* ========================= */
 
 .audio-title{
+
     font-size:25px;
+
     margin-bottom:18px;
 }
 
 audio{
+
     width:100%;
 }
 
+
+/* ========================= */
 /* النهاية */
+/* ========================= */
 
 .footer{
+
     margin-top:40px;
+
     font-size:27px;
+
     line-height:2;
+
     color:#ffb4c8;
 }
 
+
+/* ========================= */
 /* القلوب */
+/* ========================= */
 
 .heart{
+
     position:fixed;
+
     bottom:-40px;
+
     z-index:1;
+
     pointer-events:none;
-    animation:floatHeart linear forwards;
+
+    animation:
+    floatHeart
+    linear
+    forwards;
 }
 
 @keyframes floatHeart{
 
     0%{
-        transform:translateY(0) rotate(0deg);
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
         opacity:0;
     }
 
@@ -196,63 +310,97 @@ audio{
     }
 
     100%{
-        transform:translateY(-110vh) rotate(360deg);
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
         opacity:0;
     }
 }
 
+
+/* ========================= */
 /* شاشة الباسورد */
+/* ========================= */
 
 #lockScreen{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     padding:25px;
 
     background:
-        radial-gradient(circle at top,#72002d,#19000c 70%);
+
+    radial-gradient(
+        circle at top,
+        #72002d,
+        #19000c 70%
+    );
 }
 
 .lockBox{
+
     width:100%;
+
     max-width:420px;
 
-    background:rgba(255,255,255,.09);
+    background:
+    rgba(255,255,255,.09);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+    1px solid
+    rgba(255,255,255,.12);
 
     border-radius:30px;
 
     padding:35px 25px;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.5);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:
+    blur(10px);
 }
 
 .lockHeart{
+
     font-size:60px;
+
     margin-bottom:10px;
 }
 
 .lockBox h2{
+
     font-size:30px;
+
     margin:10px 0;
 }
 
 .lockBox p{
+
     font-size:20px;
+
     color:#ffd3df;
 }
 
 #password{
+
     width:100%;
+
     border:0;
+
     outline:0;
 
     padding:16px;
@@ -266,56 +414,75 @@ audio{
     margin:15px 0;
 
     background:white;
+
     color:#300014;
 }
 
 #error{
+
     display:none;
+
     color:#ff9bad;
+
     margin-top:15px;
+
     font-size:17px;
 }
 
-/* موبايل */
+
+/* ========================= */
+/* الموبايل */
+/* ========================= */
 
 @media(max-width:600px){
 
     .container{
+
         width:94%;
+
         padding-top:25px;
     }
 
     h1{
+
         font-size:30px;
     }
 
     .subtitle{
+
         font-size:23px;
     }
 
     .card{
+
         padding:18px;
+
         border-radius:28px;
     }
 
     .photo-box{
+
         height:500px;
     }
 
     .date{
+
         font-size:29px;
     }
 
     .message{
+
         font-size:19px;
     }
 
     button{
+
         font-size:17px;
     }
 }
 
 </style>
+
 </head>
 
 
@@ -328,222 +495,263 @@ audio{
 
 <div id="lockScreen">
 
-    <div class="lockBox">
+<div class="lockBox">
 
-        <div class="lockHeart">
-            ❤️
-        </div>
+<div class="lockHeart">
+❤️
+</div>
 
-        <h2>
-            من محمود لأمنية
-        </h2>
+<h2>
+من محمود لأمنية
+</h2>
 
-        <p>
-            أجمل حاجة في حياتي ❤️
-        </p>
+<p>
+أجمل حاجة في حياتي ❤️
+</p>
 
-        <input
-            id="password"
-            type="password"
-            inputmode="numeric"
-            placeholder="اكتبي الباسورد"
-            onkeydown="if(event.key==='Enter') unlock()"
-        >
+<input
+id="password"
+type="password"
+inputmode="numeric"
+placeholder="اكتبي الباسورد"
+>
 
-        <button onclick="unlock()">
-            دخول ❤️
-        </button>
+<button onclick="unlock()">
+دخول ❤️
+</button>
 
-        <div id="error">
-            الباسورد غلط ❤️
-        </div>
+<div id="error">
+الباسورد غلط ❤️
+</div>
 
-    </div>
+</div>
 
 </div>
 
 
+
 <!-- ========================= -->
-<!-- محتوى الموقع -->
+<!-- الموقع -->
 <!-- ========================= -->
 
 <div class="container">
 
-    <h1>
-        من محمود لأمنية ❤️
-    </h1>
 
-    <div class="subtitle">
-        أجمل حاجة في حياتي ❤️
-    </div>
+<h1>
+من محمود لأمنية ❤️
+</h1>
 
-
-    <!-- ========================= -->
-    <!-- معرض الصور -->
-    <!-- ========================= -->
-
-    <div class="card">
-
-        <div class="gallery-title">
-            ❤️ ذكرياتنا ❤️
-        </div>
+<div class="subtitle">
+أجمل حاجة في حياتي ❤️
+</div>
 
 
-        <div class="photo-box">
 
-            <!-- الصورة الأولى -->
-            <img
-                class="photo active"
-                src="1785591711299.png"
-                alt="ذكرياتنا"
-            >
+<!-- ========================= -->
+<!-- معرض الصور -->
+<!-- ========================= -->
 
-            <!-- الصورة الثانية -->
-            <img
-                class="photo"
-                src="IMG-20260527-WA0068.jpg"
-                alt="ذكرياتنا"
-            >
+<div class="card">
 
-            <!-- الصورة الثالثة -->
-            <img
-                class="photo"
-                src="١.jpg"
-                alt="ذكرياتنا"
-            >
-
-            <!-- الصورة الرابعة -->
-            <img
-                class="photo"
-                src="٣.jpg"
-                alt="ذكرياتنا"
-            >
-
-        </div>
+<div class="gallery-title">
+❤️ ذكرياتنا ❤️
+</div>
 
 
-        <div class="buttons">
-
-            <button onclick="previousPhoto()">
-                ❮ السابقة
-            </button>
-
-            <button onclick="nextPhoto()">
-                التالية ❯
-            </button>
-
-        </div>
+<div class="photo-box">
 
 
-        <div class="dots">
+<!-- الصورة 1 -->
 
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-
-        </div>
-
-    </div>
+<img
+class="photo active"
+src="https://raw.githubusercontent.com/mmohamedashraf2017-ship-it/OmniaMahmoud/main/1785591711299.png"
+alt="ذكرياتنا"
+>
 
 
-    <!-- ========================= -->
-    <!-- تاريخ الزواج -->
-    <!-- ========================= -->
+<!-- الصورة 2 -->
 
-    <div class="card">
-
-        <div class="date">
-            ❤️ 2021 / 8 / 20 ❤️
-        </div>
-
-        <div class="message">
-
-            كل سنة وإنتِ حبيبتي ومراتي
-            وأجمل حاجة حصلت في حياتي ❤️
-
-            <br>
-
-            كل سنة وإحنا مع بعض،
-            وكل سنة وإنتِ سندي وراحتي وأماني
-
-            <br>
-
-            ربنا يخليكي ليا،
-            ويديم بينا المودة والرحمة،
-            ويجمعنا دايمًا على خير وحب.
-
-            <br>
-
-            عيد جواز سعيد علينا يا حبيبتي ❤️💍
-
-        </div>
-
-    </div>
+<img
+class="photo"
+src="https://raw.githubusercontent.com/mmohamedashraf2017-ship-it/OmniaMahmoud/main/IMG-20260527-WA0068.jpg"
+alt="ذكرياتنا"
+>
 
 
-    <!-- ========================= -->
-    <!-- الأغنية -->
-    <!-- ========================= -->
+<!-- الصورة 3 -->
 
-    <div class="card">
-
-        <div class="audio-title">
-            🎵 أغنية مخصوص لأمنية ❤️
-        </div>
-
-        <audio controls preload="metadata">
-
-            <source
-                src="حبيتك امنيه.mp3"
-                type="audio/mpeg"
-            >
-
-            المتصفح لا يدعم تشغيل الصوت.
-
-        </audio>
-
-    </div>
+<img
+class="photo"
+src="https://raw.githubusercontent.com/mmohamedashraf2017-ship-it/OmniaMahmoud/main/%D9%A1.jpg"
+alt="ذكرياتنا"
+>
 
 
-    <!-- ========================= -->
-    <!-- النهاية -->
-    <!-- ========================= -->
+<!-- الصورة 4 -->
 
-    <div class="footer">
+<img
+class="photo"
+src="https://raw.githubusercontent.com/mmohamedashraf2017-ship-it/OmniaMahmoud/main/%D9%A3.jpg"
+alt="ذكرياتنا"
+>
 
-        ❤️ بحبك ❤️
-
-        <br>
-
-        محمود
-
-    </div>
 
 </div>
 
 
+<div class="buttons">
+
+<button onclick="previousPhoto()">
+❮ السابقة
+</button>
+
+<button onclick="nextPhoto()">
+التالية ❯
+</button>
+
+</div>
+
+
+<div class="dots">
+
+<span class="dot active"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+<span class="dot"></span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- تاريخ الزواج -->
+<!-- ========================= -->
+
+<div class="card">
+
+<div class="date">
+❤️ 2021 / 8 / 20 ❤️
+</div>
+
+
+<div class="message">
+
+كل سنة وإنتِ حبيبتي ومراتي
+<br>
+
+وأجمل حاجة حصلت في حياتي ❤️
+
+<br>
+
+كل سنة وإحنا مع بعض،
+<br>
+
+وكل سنة وإنتِ سندي وراحتي وأماني
+
+<br>
+
+ربنا يخليكي ليا،
+<br>
+
+ويديم بينا المودة والرحمة،
+<br>
+
+ويجمعنا دايمًا على خير وحب.
+
+<br>
+
+عيد جواز سعيد علينا يا حبيبتي ❤️💍
+
+</div>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- الأغنية -->
+<!-- ========================= -->
+
+<div class="card">
+
+<div class="audio-title">
+🎵 أغنية مخصوص لأمنية ❤️
+</div>
+
+
+<audio
+id="loveSong"
+controls
+preload="metadata"
+>
+
+<source
+src="https://raw.githubusercontent.com/mmohamedashraf2017-ship-it/OmniaMahmoud/main/%D8%AD%D8%A8%D9%8A%D8%AA%D9%83%20%D8%A7%D9%85%D9%86%D9%8A%D9%87.mp3"
+type="audio/mpeg"
+>
+
+المتصفح لا يدعم تشغيل الصوت.
+
+</audio>
+
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- النهاية -->
+<!-- ========================= -->
+
+<div class="footer">
+
+❤️ بحبك ❤️
+
+<br>
+
+محمود
+
+</div>
+
+
+</div>
+
+
+
 <script>
 
-/* ================================= */
+
+/* ========================= */
 /* الباسورد */
-/* ================================= */
+/* ========================= */
 
 function unlock(){
 
     const password =
-        document.getElementById("password").value;
+    document.getElementById("password").value;
 
     const error =
-        document.getElementById("error");
+    document.getElementById("error");
+
 
     if(password === "2082021"){
 
-        document.getElementById("lockScreen").style.display = "none";
+        document
+        .getElementById("lockScreen")
+        .style.display = "none";
 
         error.style.display = "none";
 
-    }else{
+    }
+
+    else{
 
         error.style.display = "block";
 
@@ -552,28 +760,39 @@ function unlock(){
 }
 
 
-/* ================================= */
+
+/* ========================= */
 /* معرض الصور */
-/* ================================= */
+/* ========================= */
 
 let currentPhoto = 0;
 
+
 const photos =
-    document.querySelectorAll(".photo");
+document.querySelectorAll(".photo");
+
 
 const dots =
-    document.querySelectorAll(".dot");
+document.querySelectorAll(".dot");
+
 
 
 function showPhoto(index){
 
     if(index >= photos.length){
+
         currentPhoto = 0;
+
     }
 
+
     if(index < 0){
-        currentPhoto = photos.length - 1;
+
+        currentPhoto =
+        photos.length - 1;
+
     }
+
 
     photos.forEach(function(photo){
 
@@ -590,16 +809,19 @@ function showPhoto(index){
 
 
     photos[currentPhoto]
-        .classList.add("active");
+    .classList.add("active");
 
 
     dots[currentPhoto]
-        .classList.add("active");
+    .classList.add("active");
 
 }
 
 
-/* التالية */
+
+/* ========================= */
+/* الصورة التالية */
+/* ========================= */
 
 function nextPhoto(){
 
@@ -616,7 +838,10 @@ function nextPhoto(){
 }
 
 
-/* السابقة */
+
+/* ========================= */
+/* الصورة السابقة */
+/* ========================= */
 
 function previousPhoto(){
 
@@ -624,7 +849,8 @@ function previousPhoto(){
 
     if(currentPhoto < 0){
 
-        currentPhoto = photos.length - 1;
+        currentPhoto =
+        photos.length - 1;
 
     }
 
@@ -633,9 +859,11 @@ function previousPhoto(){
 }
 
 
-/* ================================= */
+
+/* ========================= */
 /* التقليب التلقائي */
-/* ================================= */
+/* كل 4 ثواني */
+/* ========================= */
 
 setInterval(function(){
 
@@ -644,27 +872,38 @@ setInterval(function(){
 },4000);
 
 
-/* ================================= */
-/* القلوب المتحركة */
-/* ================================= */
+
+/* ========================= */
+/* القلوب */
+/* ========================= */
 
 function createHeart(){
 
     const heart =
-        document.createElement("div");
+    document.createElement("div");
 
-    heart.className = "heart";
 
-    heart.innerHTML = "❤️";
+    heart.className =
+    "heart";
+
+
+    heart.innerHTML =
+    "❤️";
+
 
     heart.style.left =
-        Math.random() * 100 + "vw";
+    Math.random() * 100 + "vw";
+
 
     heart.style.fontSize =
-        (18 + Math.random() * 25) + "px";
+    (18 + Math.random() * 25)
+    + "px";
+
 
     heart.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
+    (5 + Math.random() * 5)
+    + "s";
+
 
     document.body.appendChild(heart);
 
@@ -680,7 +919,31 @@ function createHeart(){
 
 setInterval(createHeart,800);
 
+
+
+/* ========================= */
+/* Enter للباسورد */
+/* ========================= */
+
+document
+.getElementById("password")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            unlock();
+
+        }
+
+    }
+);
+
+
 </script>
 
+
 </body>
+
 </html>
