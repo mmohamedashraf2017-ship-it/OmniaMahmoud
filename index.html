@@ -1,498 +1,590 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>من محمود لأمنية ❤️</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>From Mahmoud To Omnia ❤️</title>
 
-*{
-    box-sizing:border-box;
-}
+    <style>
 
-html{
-    scroll-behavior:smooth;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body{
-    margin:0;
-    min-height:100vh;
+        body {
+            font-family: Arial, Tahoma, sans-serif;
+            background:
+                linear-gradient(
+                    180deg,
+                    #5b0024 0%,
+                    #320014 50%,
+                    #180009 100%
+                );
 
-    background:
-    linear-gradient(
-        180deg,
-        #56001f 0%,
-        #21000f 100%
-    );
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-    color:white;
+        /* =========================
+           PASSWORD SCREEN
+        ========================== */
 
-    font-family:
-    Tahoma,
-    Arial,
-    sans-serif;
+        #loginScreen {
+            position: fixed;
+            inset: 0;
 
-    text-align:center;
+            background:
+                linear-gradient(
+                    180deg,
+                    #650027,
+                    #21000d
+                );
 
-    overflow-x:hidden;
-}
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-/* الصفحة */
+            z-index: 9999;
 
-.container{
-    width:94%;
-    max-width:700px;
+            padding: 25px;
+        }
 
-    margin:auto;
+        .loginBox {
+            width: 100%;
+            max-width: 420px;
 
-    padding:
-    35px 0 60px;
-}
+            background: rgba(255,255,255,0.09);
 
-/* العنوان */
+            border-radius: 30px;
 
-h1{
-    font-size:34px;
-    margin:10px 0;
-}
+            padding: 35px 25px;
 
-.subtitle{
-    font-size:25px;
-    color:#ffd5e2;
+            text-align: center;
 
-    margin-bottom:25px;
-}
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.45);
 
-/* الكروت */
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-.card{
-    background:
-    rgba(255,255,255,.09);
+        .loginHeart {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
 
-    border-radius:30px;
+        .loginBox h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
 
-    padding:25px;
+        .loginBox p {
+            font-size: 20px;
+            color: #ffc1d6;
+            margin-bottom: 25px;
+        }
 
-    margin:25px 0;
+        #password {
+            width: 100%;
 
-    box-shadow:
-    0 10px 35px
-    rgba(0,0,0,.3);
-}
+            padding: 16px;
 
-/* ========================= */
-/* معرض الصور */
-/* ========================= */
+            border: none;
+            outline: none;
 
-.gallery-title{
-    font-size:27px;
-    margin-bottom:20px;
-}
+            border-radius: 15px;
 
-.photo-box{
+            font-size: 20px;
 
-    width:100%;
+            text-align: center;
 
-    height:500px;
+            margin-bottom: 15px;
+        }
 
-    position:relative;
+        #enterBtn {
+            width: 100%;
 
-    overflow:hidden;
+            padding: 16px;
 
-    border-radius:28px;
+            border: none;
 
-    background:#26000f;
-}
+            border-radius: 15px;
 
-/* الصور */
+            background: #ff3975;
 
-.photo{
+            color: white;
 
-    position:absolute;
+            font-size: 20px;
+            font-weight: bold;
 
-    top:0;
-    left:0;
+            cursor: pointer;
+        }
 
-    width:100%;
-    height:100%;
+        #enterBtn:active {
+            transform: scale(0.97);
+        }
 
-    object-fit:cover;
+        #wrongPassword {
+            color: #ff9eb9;
 
-    opacity:0;
+            margin-top: 15px;
 
-    visibility:hidden;
+            display: none;
 
-    transition:
-    opacity .6s ease;
-}
+            font-size: 17px;
+        }
 
-.photo.active{
+        /* =========================
+           MAIN WEBSITE
+        ========================== */
 
-    opacity:1;
+        #mainContent {
+            display: none;
 
-    visibility:visible;
-}
+            min-height: 100vh;
 
-/* الأزرار */
+            padding: 35px 20px 60px;
+        }
 
-.buttons{
+        .container {
+            width: 100%;
+            max-width: 700px;
 
-    display:flex;
+            margin: auto;
+        }
 
-    justify-content:space-between;
+        /* =========================
+           HEADER
+        ========================== */
 
-    gap:15px;
+        .header {
+            text-align: center;
 
-    margin-top:18px;
-}
+            margin-bottom: 30px;
+        }
 
-button{
+        .header h1 {
+            font-size: 40px;
 
-    flex:1;
+            line-height: 1.5;
 
-    border:none;
+            margin-bottom: 10px;
+        }
 
-    background:#ff3f72;
+        .header h2 {
+            font-size: 27px;
 
-    color:white;
+            color: #ffc0d5;
 
-    padding:15px;
+            font-weight: normal;
+        }
 
-    border-radius:30px;
+        /* =========================
+           HEARTS
+        ========================== */
 
-    font-size:18px;
+        .heart {
+            position: fixed;
 
-    font-weight:bold;
+            font-size: 35px;
 
-    cursor:pointer;
-}
+            opacity: 0.35;
 
-button:active{
+            pointer-events: none;
 
-    transform:scale(.96);
-}
+            animation: floatHeart 8s linear infinite;
 
-/* النقاط */
+            z-index: 1;
+        }
 
-.dots{
+        @keyframes floatHeart {
 
-    margin-top:18px;
-}
+            0% {
+                transform:
+                    translateY(110vh)
+                    rotate(0deg);
 
-.dot{
+                opacity: 0;
+            }
 
-    display:inline-block;
+            20% {
+                opacity: 0.35;
+            }
 
-    width:11px;
-    height:11px;
+            80% {
+                opacity: 0.35;
+            }
 
-    margin:4px;
+            100% {
+                transform:
+                    translateY(-120vh)
+                    rotate(360deg);
 
-    border-radius:50%;
+                opacity: 0;
+            }
+        }
 
-    background:#777;
-}
+        /* =========================
+           PHOTO SECTION
+        ========================== */
 
-.dot.active{
+        .gallerySection {
 
-    background:#ff4778;
+            background: rgba(255,255,255,0.09);
 
-    transform:scale(1.3);
-}
+            border-radius: 30px;
 
-/* التاريخ */
+            padding: 25px;
 
-.date{
+            margin-bottom: 30px;
 
-    color:#ff9fba;
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.25);
 
-    font-size:32px;
+            position: relative;
 
-    font-weight:bold;
+            z-index: 2;
+        }
 
-    margin-bottom:20px;
-}
+        .galleryTitle {
 
-/* الرسالة */
+            text-align: center;
 
-.message{
+            font-size: 32px;
 
-    font-size:21px;
+            margin-bottom: 25px;
 
-    line-height:2;
+            color: #ffd2df;
+        }
 
-    color:#fff0f5;
-}
+        .photoContainer {
 
-/* الصوت */
+            width: 100%;
 
-.audio-title{
+            height: 620px;
 
-    font-size:25px;
+            background: #25000f;
 
-    margin-bottom:18px;
-}
+            border-radius: 30px;
 
-audio{
+            overflow: hidden;
 
-    width:100%;
-}
+            position: relative;
 
-/* النهاية */
+            display: flex;
 
-.footer{
+            align-items: center;
 
-    margin-top:40px;
+            justify-content: center;
+        }
 
-    font-size:27px;
+        .photo {
 
-    line-height:2;
+            width: 100%;
 
-    color:#ffb4c8;
-}
+            height: 100%;
 
-/* ========================= */
-/* القلوب */
-/* ========================= */
+            object-fit: cover;
 
-.heart{
+            display: none;
 
-    position:fixed;
+            opacity: 0;
 
-    bottom:-40px;
+            transition:
+                opacity 0.6s ease;
+        }
 
-    z-index:1;
+        .photo.active {
 
-    pointer-events:none;
+            display: block;
 
-    animation:
-    floatHeart
-    linear
-    forwards;
-}
+            opacity: 1;
+        }
 
-@keyframes floatHeart{
+        .photoError {
 
-    0%{
+            display: none;
 
-        transform:
-        translateY(0)
-        rotate(0deg);
+            text-align: center;
 
-        opacity:0;
-    }
+            color: #ffc0d5;
 
-    15%{
-        opacity:.8;
-    }
+            padding: 30px;
 
-    100%{
+            font-size: 18px;
+        }
 
-        transform:
-        translateY(-110vh)
-        rotate(360deg);
+        /* =========================
+           BUTTONS
+        ========================== */
 
-        opacity:0;
-    }
-}
+        .buttons {
 
-/* ========================= */
-/* شاشة الباسورد */
-/* ========================= */
+            display: flex;
 
-#lockScreen{
+            justify-content: space-between;
 
-    position:fixed;
+            gap: 20px;
 
-    inset:0;
+            margin-top: 25px;
+        }
 
-    z-index:9999;
+        .galleryBtn {
 
-    display:flex;
+            flex: 1;
 
-    justify-content:center;
+            border: none;
 
-    align-items:center;
+            padding: 16px 10px;
 
-    padding:25px;
+            border-radius: 50px;
 
-    background:
-    radial-gradient(
-        circle at top,
-        #72002d,
-        #19000c 70%
-    );
-}
+            background: #ff3975;
 
-.lockBox{
+            color: white;
 
-    width:100%;
+            font-size: 20px;
 
-    max-width:420px;
+            font-weight: bold;
 
-    background:
-    rgba(255,255,255,.09);
+            cursor: pointer;
+        }
 
-    border:
-    1px solid
-    rgba(255,255,255,.12);
+        .galleryBtn:active {
 
-    border-radius:30px;
+            transform: scale(0.96);
+        }
 
-    padding:35px 25px;
+        /* =========================
+           DOTS
+        ========================== */
 
-    box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.5);
-}
+        .dots {
 
-.lockHeart{
+            display: flex;
 
-    font-size:60px;
+            justify-content: center;
 
-    margin-bottom:10px;
-}
+            gap: 12px;
 
-.lockBox h2{
+            margin-top: 20px;
+        }
 
-    font-size:30px;
+        .dot {
 
-    margin:10px 0;
-}
+            width: 13px;
 
-.lockBox p{
+            height: 13px;
 
-    font-size:20px;
+            background: #777;
 
-    color:#ffd3df;
-}
+            border-radius: 50%;
 
-#password{
+            cursor: pointer;
+        }
 
-    width:100%;
+        .dot.active {
 
-    border:none;
+            background: #ff3975;
 
-    outline:none;
+            transform: scale(1.25);
+        }
 
-    padding:16px;
+        /* =========================
+           DATE / MESSAGE
+        ========================== */
 
-    border-radius:25px;
+        .messageBox {
 
-    text-align:center;
+            background: rgba(255,255,255,0.09);
 
-    font-size:20px;
+            border-radius: 30px;
 
-    margin:15px 0;
+            padding: 35px 25px;
 
-    background:white;
+            text-align: center;
 
-    color:#300014;
-}
+            margin-bottom: 30px;
 
-#error{
+            position: relative;
 
-    display:none;
+            z-index: 2;
+        }
 
-    color:#ff9bad;
+        .date {
 
-    margin-top:15px;
+            color: #ff9cba;
 
-    font-size:17px;
-}
+            font-size: 40px;
 
-/* الموبايل */
+            font-weight: bold;
 
-@media(max-width:600px){
+            margin-bottom: 30px;
+        }
 
-    .container{
+        .message {
 
-        width:94%;
+            font-size: 25px;
 
-        padding-top:25px;
-    }
+            line-height: 2;
 
-    h1{
+            color: #fff;
 
-        font-size:30px;
-    }
+        }
 
-    .subtitle{
+        /* =========================
+           AUDIO
+        ========================== */
 
-        font-size:23px;
-    }
+        .musicBox {
 
-    .card{
+            background: rgba(255,255,255,0.09);
 
-        padding:18px;
+            border-radius: 30px;
 
-        border-radius:28px;
-    }
+            padding: 30px 20px;
 
-    .photo-box{
+            text-align: center;
 
-        height:500px;
-    }
+            margin-bottom: 35px;
 
-    .date{
+            position: relative;
 
-        font-size:29px;
-    }
+            z-index: 2;
+        }
 
-    .message{
+        .musicTitle {
 
-        font-size:19px;
-    }
+            font-size: 27px;
 
-    button{
+            margin-bottom: 20px;
 
-        font-size:17px;
-    }
-}
+            color: #ffd0df;
+        }
 
-</style>
+        audio {
 
+            width: 100%;
+
+            height: 55px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            color: #ff9cba;
+
+            padding-bottom: 30px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .footerName {
+
+            margin-top: 15px;
+
+            font-size: 28px;
+
+            color: #ffc1d5;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            #mainContent {
+                padding: 25px 15px 50px;
+            }
+
+            .header h1 {
+                font-size: 31px;
+            }
+
+            .header h2 {
+                font-size: 22px;
+            }
+
+            .gallerySection {
+                padding: 18px;
+            }
+
+            .galleryTitle {
+                font-size: 28px;
+            }
+
+            .photoContainer {
+                height: 600px;
+            }
+
+            .date {
+                font-size: 32px;
+            }
+
+            .message {
+                font-size: 21px;
+            }
+
+            .galleryBtn {
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- ========================= -->
-<!-- شاشة الباسورد -->
-<!-- ========================= -->
+<!-- =====================================================
+     PASSWORD SCREEN
+====================================================== -->
 
-<div id="lockScreen">
+<div id="loginScreen">
 
-    <div class="lockBox">
+    <div class="loginBox">
 
-        <div class="lockHeart">
+        <div class="loginHeart">
             ❤️
         </div>
 
-        <h2>
-            من محمود لأمنية
-        </h2>
+        <h1>
+            From Mahmoud To Omnia
+        </h1>
 
         <p>
-            أجمل حاجة في حياتي ❤️
+            ❤️ حاجة خاصة ليكي ❤️
         </p>
 
         <input
-            id="password"
             type="password"
-            inputmode="numeric"
+            id="password"
             placeholder="اكتبي الباسورد"
+            autocomplete="off"
         >
 
-        <button onclick="unlock()">
+        <button id="enterBtn">
             دخول ❤️
         </button>
 
-        <div id="error">
+        <div id="wrongPassword">
             الباسورد غلط ❤️
         </div>
 
@@ -502,191 +594,190 @@ audio{
 
 
 
-<!-- ========================= -->
-<!-- الموقع -->
-<!-- ========================= -->
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
 
-<div class="container">
+<div id="mainContent">
 
-
-<h1>
-    من محمود لأمنية ❤️
-</h1>
-
-<div class="subtitle">
-    أجمل حاجة في حياتي ❤️
-</div>
+    <div class="container">
 
 
-<!-- ========================= -->
-<!-- معرض الصور -->
-<!-- ========================= -->
+        <!-- HEADER -->
 
-<div class="card">
+        <header class="header">
 
-    <div class="gallery-title">
-        ❤️ ذكرياتنا ❤️
+            <h1>
+                ❤️ From Mahmoud To Omnia ❤️
+            </h1>
+
+            <h2>
+                أجمل حاجة في حياتي ❤️
+            </h2>
+
+        </header>
+
+
+
+        <!-- GALLERY -->
+
+        <section class="gallerySection">
+
+            <div class="galleryTitle">
+                ❤️ حب عمري ❤️
+            </div>
+
+
+            <div class="photoContainer">
+
+
+                <!-- الصورة الأولى -->
+
+                <img
+                    src="Photo1.jpg"
+                    class="photo active"
+                    alt="Omnia"
+                    onerror="imageError(this)"
+                >
+
+
+                <!-- الصورة الثانية -->
+
+                <img
+                    src="Photo3.jpg"
+                    class="photo"
+                    alt="Omnia"
+                    onerror="imageError(this)"
+                >
+
+
+                <div class="photoError">
+                    الصورة مش موجودة.<br>
+                    تأكد إن اسم الملف في GitHub هو نفسه المكتوب في الكود.
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+                <button
+                    class="galleryBtn"
+                    onclick="previousPhoto()"
+                >
+                    ❮ السابقة
+                </button>
+
+
+                <button
+                    class="galleryBtn"
+                    onclick="nextPhoto()"
+                >
+                    التالية ❯
+                </button>
+
+            </div>
+
+
+
+            <!-- DOTS -->
+
+            <div class="dots">
+
+                <span
+                    class="dot active"
+                    onclick="showPhoto(0)"
+                ></span>
+
+                <span
+                    class="dot"
+                    onclick="showPhoto(1)"
+                ></span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MESSAGE -->
+
+        <section class="messageBox">
+
+            <div class="date">
+                ❤️ 2021 / 8 / 20 ❤️
+            </div>
+
+
+            <div class="message">
+
+                كل سنة وإنت حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
+
+                <br><br>
+
+                كل سنة وإحنا مع بعض، وكل سنة وإنت سندي وراحتي وأماني ❤️
+
+                <br><br>
+
+                ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
+                ويجمعنا دايمًا على خير وحب.
+
+                <br><br>
+
+                عيد جواز سعيد علينا يا حبيبتي 💍❤️
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MUSIC -->
+
+        <section class="musicBox">
+
+            <div class="musicTitle">
+                🎵 ❤️ أغنية مخصوص لأمنية ❤️
+            </div>
+
+
+            <audio
+                id="mySong"
+                controls
+                preload="auto"
+                loop
+            >
+
+                <source
+                    src="Song.mp3"
+                    type="audio/mpeg"
+                >
+
+                المتصفح لا يدعم تشغيل الصوت.
+
+            </audio>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            ❤️ بحبك ❤️
+
+            <div class="footerName">
+                محمود
+            </div>
+
+        </footer>
+
+
     </div>
-
-
-    <div class="photo-box">
-
-        <!-- الصورة 1 -->
-
-        <img
-            class="photo active"
-            src="./1785591711299.png"
-            alt="ذكرياتنا"
-        >
-
-
-        <!-- الصورة 2 -->
-
-        <img
-            class="photo"
-            src="./IMG-20260527-WA0068.jpg"
-            alt="ذكرياتنا"
-        >
-
-
-        <!-- الصورة 3 -->
-
-        <img
-            class="photo"
-            src="./Photo1.jpg"
-            alt="ذكرياتنا"
-        >
-
-
-        <!-- الصورة 4 -->
-
-        <img
-            class="photo"
-            src="./Photo3.jpg"
-            alt="ذكرياتنا"
-        >
-
-    </div>
-
-
-    <div class="buttons">
-
-        <button onclick="previousPhoto()">
-            ❮ السابقة
-        </button>
-
-        <button onclick="nextPhoto()">
-            التالية ❯
-        </button>
-
-    </div>
-
-
-    <div class="dots">
-
-        <span class="dot active"></span>
-
-        <span class="dot"></span>
-
-        <span class="dot"></span>
-
-        <span class="dot"></span>
-
-    </div>
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- التاريخ والرسالة -->
-<!-- ========================= -->
-
-<div class="card">
-
-    <div class="date">
-        ❤️ 2021 / 8 / 20 ❤️
-    </div>
-
-
-    <div class="message">
-
-        كل سنة وإنتِ حبيبتي ومراتي
-        <br>
-
-        وأجمل حاجة حصلت في حياتي ❤️
-
-        <br><br>
-
-        كل سنة وإحنا مع بعض،
-        <br>
-
-        وكل سنة وإنتِ سندي وراحتي وأماني
-
-        <br><br>
-
-        ربنا يخليكي ليا،
-        <br>
-
-        ويديم بينا المودة والرحمة،
-        <br>
-
-        ويجمعنا دايمًا على خير وحب.
-
-        <br><br>
-
-        عيد جواز سعيد علينا يا حبيبتي ❤️💍
-
-    </div>
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- الأغنية -->
-<!-- ========================= -->
-
-<div class="card">
-
-    <div class="audio-title">
-        🎵 أغنية مخصوص لأمنية ❤️
-    </div>
-
-
-    <audio
-        id="loveSong"
-        controls
-        preload="auto"
-    >
-
-        <source
-            src="./Song.mp3"
-            type="audio/mpeg"
-        >
-
-        المتصفح لا يدعم تشغيل الصوت.
-
-    </audio>
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- النهاية -->
-<!-- ========================= -->
-
-<div class="footer">
-
-    ❤️ بحبك ❤️
-
-    <br>
-
-    محمود
-
-</div>
-
 
 </div>
 
@@ -694,32 +785,111 @@ audio{
 
 <script>
 
-/* ========================= */
-/* الباسورد */
-/* ========================= */
 
-function unlock(){
-
-    const password =
-    document.getElementById("password").value;
-
-    const error =
-    document.getElementById("error");
+/* =====================================================
+   PASSWORD
+====================================================== */
 
 
-    if(password === "2082021"){
+/*
+   مهم جدًا:
 
-        document
-        .getElementById("lockScreen")
-        .style.display = "none";
+   الباسورد الحالي هو:
 
-        error.style.display = "none";
+   2021
+
+   لو عايز تغيره غيّر الرقم الموجود
+   بين علامات التنصيص فقط.
+*/
+
+const PASSWORD = "2021";
+
+
+const passwordInput =
+    document.getElementById("password");
+
+
+const enterButton =
+    document.getElementById("enterBtn");
+
+
+const loginScreen =
+    document.getElementById("loginScreen");
+
+
+const mainContent =
+    document.getElementById("mainContent");
+
+
+const wrongPassword =
+    document.getElementById("wrongPassword");
+
+
+const song =
+    document.getElementById("mySong");
+
+
+
+function unlockWebsite() {
+
+    const enteredPassword =
+        passwordInput.value.trim();
+
+
+    if (enteredPassword === PASSWORD) {
+
+        /*
+           نخفي شاشة الباسورد
+        */
+
+        loginScreen.style.display = "none";
+
+
+        /*
+           نظهر الموقع
+        */
+
+        mainContent.style.display = "block";
+
+
+        /*
+           تشغيل الأغنية فورًا بعد الضغط على دخول
+        */
+
+        song.currentTime = 0;
+
+        const playPromise = song.play();
+
+
+        if (playPromise !== undefined) {
+
+            playPromise.catch(function(error) {
+
+                console.log(
+                    "Audio could not autoplay:",
+                    error
+                );
+
+            });
+
+        }
+
+
+        /*
+           نبدأ تغيير الصور
+        */
+
+        startSlideshow();
 
     }
 
-    else{
+    else {
 
-        error.style.display = "block";
+        wrongPassword.style.display = "block";
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
 
     }
 
@@ -727,28 +897,76 @@ function unlock(){
 
 
 
-/* ========================= */
-/* معرض الصور */
-/* ========================= */
+/*
+   الضغط على زر الدخول
+*/
+
+enterButton.addEventListener(
+    "click",
+    unlockWebsite
+);
+
+
+
+/*
+   الضغط على Enter من الكيبورد
+*/
+
+passwordInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            unlockWebsite();
+
+        }
+
+    }
+);
+
+
+
+
+/* =====================================================
+   PHOTO SLIDESHOW
+====================================================== */
+
+
+const photos =
+    document.querySelectorAll(".photo");
+
+
+const dots =
+    document.querySelectorAll(".dot");
+
 
 let currentPhoto = 0;
 
-const photos =
-document.querySelectorAll(".photo");
 
-const dots =
-document.querySelectorAll(".dot");
+let slideshowTimer;
 
 
-function showPhoto(index){
 
-    if(index >= photos.length){
+/*
+   عرض صورة معينة
+*/
+
+function showPhoto(index) {
+
+    if (photos.length === 0) {
+        return;
+    }
+
+
+    if (index >= photos.length) {
 
         index = 0;
 
     }
 
-    if(index < 0){
+
+    if (index < 0) {
 
         index = photos.length - 1;
 
@@ -758,138 +976,190 @@ function showPhoto(index){
     currentPhoto = index;
 
 
-    photos.forEach(function(photo){
+    /*
+       إخفاء كل الصور
+    */
+
+    photos.forEach(function(photo) {
 
         photo.classList.remove("active");
 
     });
 
 
-    dots.forEach(function(dot){
+    /*
+       إظهار الصورة المطلوبة
+    */
 
-        dot.classList.remove("active");
+    photos[currentPhoto]
+        .classList.add("active");
+
+
+    /*
+       تحديث النقاط
+    */
+
+    dots.forEach(function(dot, i) {
+
+        dot.classList.toggle(
+            "active",
+            i === currentPhoto
+        );
 
     });
 
-
-    photos[currentPhoto]
-    .classList.add("active");
+}
 
 
-    dots[currentPhoto]
-    .classList.add("active");
+
+/*
+   الصورة التالية
+*/
+
+function nextPhoto() {
+
+    showPhoto(
+        currentPhoto + 1
+    );
+
+    restartSlideshow();
 
 }
 
 
 
-/* ========================= */
-/* الصورة التالية */
-/* ========================= */
+/*
+   الصورة السابقة
+*/
 
-function nextPhoto(){
+function previousPhoto() {
 
-    showPhoto(currentPhoto + 1);
+    showPhoto(
+        currentPhoto - 1
+    );
 
-}
-
-
-
-/* ========================= */
-/* الصورة السابقة */
-/* ========================= */
-
-function previousPhoto(){
-
-    showPhoto(currentPhoto - 1);
+    restartSlideshow();
 
 }
 
 
 
-/* ========================= */
-/* التقليب التلقائي */
-/* كل 4 ثواني */
-/* ========================= */
+/*
+   تشغيل التغيير التلقائي
+*/
 
-setInterval(function(){
+function startSlideshow() {
 
-    nextPhoto();
-
-},4000);
+    clearInterval(slideshowTimer);
 
 
+    slideshowTimer =
+        setInterval(
+            function() {
 
-/* ========================= */
-/* القلوب */
-/* ========================= */
+                showPhoto(
+                    currentPhoto + 1
+                );
 
-function createHeart(){
+            },
+            4000
+        );
+
+}
+
+
+
+/*
+   إعادة تشغيل المؤقت
+*/
+
+function restartSlideshow() {
+
+    startSlideshow();
+
+}
+
+
+
+/* =====================================================
+   IMAGE ERROR
+====================================================== */
+
+function imageError(image) {
+
+    image.style.display = "none";
+
+    const error =
+        document.querySelector(".photoError");
+
+    if (error) {
+
+        error.style.display = "block";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   FLOATING HEARTS
+====================================================== */
+
+function createHeart() {
 
     const heart =
-    document.createElement("div");
+        document.createElement("div");
 
 
     heart.className =
-    "heart";
+        "heart";
 
 
     heart.innerHTML =
-    "❤️";
+        "❤️";
 
 
     heart.style.left =
-    Math.random() * 100 + "vw";
-
-
-    heart.style.fontSize =
-    (18 + Math.random() * 25)
-    + "px";
+        Math.random() * 100 + "vw";
 
 
     heart.style.animationDuration =
-    (5 + Math.random() * 5)
-    + "s";
+        (5 + Math.random() * 6) + "s";
+
+
+    heart.style.fontSize =
+        (20 + Math.random() * 30) + "px";
 
 
     document.body.appendChild(heart);
 
 
-    setTimeout(function(){
+    setTimeout(
+        function() {
 
-        heart.remove();
+            heart.remove();
 
-    },10000);
+        },
+        12000
+    );
 
 }
 
 
-setInterval(createHeart,800);
 
+/*
+   إنشاء قلوب باستمرار
+*/
 
-
-/* ========================= */
-/* Enter للباسورد */
-/* ========================= */
-
-document
-.getElementById("password")
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Enter"){
-
-            unlock();
-
-        }
-
-    }
+setInterval(
+    createHeart,
+    1000
 );
+
+
 
 </script>
 
-
 </body>
-
 </html>
