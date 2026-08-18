@@ -1,20 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="ar" dir="rtl">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mahmoud To Omnia ❤️</title>
 
 <style>
-
-/* =========================
-   GENERAL
-========================= */
 
 *{
     box-sizing:border-box;
@@ -22,877 +14,383 @@ content="width=device-width, initial-scale=1.0">
     padding:0;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-
     min-height:100vh;
-
-    font-family:
-    Arial,
-    Tahoma,
-    sans-serif;
-
+    font-family:Tahoma,Arial,sans-serif;
     background:
-    radial-gradient(
-        circle at top,
-        #fff8fb 0%,
-        #ffdce9 35%,
-        #f3b2c8 70%,
-        #c76588 100%
-    );
-
-    color:#6d2442;
-
+        radial-gradient(circle at 20% 20%, #fff 0 4%, transparent 5%),
+        linear-gradient(135deg,#ffeaf2,#ffd1df,#fff0f5);
+    color:#702743;
     overflow-x:hidden;
 }
 
+/* قلوب الخلفية */
 
-/* =========================
-   FLOATING HEARTS
-========================= */
-
-.hearts{
-
+.heart{
     position:fixed;
-
-    inset:0;
-
-    overflow:hidden;
-
+    color:#f39ab8;
+    opacity:.35;
+    font-size:35px;
+    animation:float 8s linear infinite;
     pointer-events:none;
-
     z-index:0;
 }
 
-.heart{
+.h1{left:5%;top:20%;animation-delay:0s}
+.h2{left:85%;top:15%;animation-delay:2s}
+.h3{left:15%;top:70%;animation-delay:4s}
+.h4{left:80%;top:75%;animation-delay:1s}
+.h5{left:45%;top:5%;animation-delay:3s}
 
-    position:absolute;
-
-    bottom:-80px;
-
-    font-size:30px;
-
-    opacity:0;
-
-    animation:
-    floatHeart
-    12s
-    linear
-    infinite;
-}
-
-.heart:nth-child(1){
-    left:5%;
-}
-
-.heart:nth-child(2){
-    left:18%;
-    animation-delay:2s;
-}
-
-.heart:nth-child(3){
-    left:35%;
-    animation-delay:4s;
-}
-
-.heart:nth-child(4){
-    left:52%;
-    animation-delay:1s;
-}
-
-.heart:nth-child(5){
-    left:68%;
-    animation-delay:6s;
-}
-
-.heart:nth-child(6){
-    left:83%;
-    animation-delay:3s;
-}
-
-.heart:nth-child(7){
-    left:94%;
-    animation-delay:8s;
-}
-
-@keyframes floatHeart{
-
+@keyframes float{
     0%{
-
-        transform:
-        translateY(0)
-        rotate(0deg);
-
-        opacity:0;
+        transform:translateY(0) rotate(0deg);
     }
-
-    15%{
-        opacity:.7;
+    50%{
+        transform:translateY(-35px) rotate(15deg);
     }
-
     100%{
-
-        transform:
-        translateY(-120vh)
-        rotate(360deg);
-
-        opacity:0;
+        transform:translateY(0) rotate(0deg);
     }
 }
 
+/* شاشة الباسورد */
 
-/* =========================
-   LOGIN SCREEN
-========================= */
-
-.login{
-
+#passwordPage{
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    padding:20px;
-
+    padding:25px;
     position:relative;
-
-    z-index:2;
+    z-index:5;
 }
 
-.login-card{
-
+.password-box{
     width:100%;
-
     max-width:520px;
-
-    background:
-    rgba(255,255,255,.95);
-
+    background:rgba(255,255,255,.95);
     border-radius:35px;
-
     padding:40px 25px;
-
     text-align:center;
-
-    box-shadow:
-    0 25px 70px
-    rgba(100,20,50,.25);
-
-    animation:
-    cardAppear
-    1s
-    ease;
+    box-shadow:0 20px 60px rgba(120,40,70,.18);
 }
-
-@keyframes cardAppear{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(35px)
-        scale(.95);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0)
-        scale(1);
-    }
-}
-
-
-/* Heart */
 
 .big-heart{
-
-    font-size:80px;
-
-    margin-bottom:15px;
-
-    animation:
-    heartbeat
-    1.7s
-    infinite;
+    font-size:85px;
+    animation:heartbeat 1.5s infinite;
 }
 
 @keyframes heartbeat{
-
-    0%,
-    100%{
+    0%,100%{
         transform:scale(1);
     }
-
     50%{
         transform:scale(1.12);
     }
 }
 
-
-/* Login title */
-
-.login-title{
-
-    font-size:34px;
-
-    font-weight:bold;
-
-    color:#8e2851;
-
-    margin-bottom:15px;
+.password-box h1{
+    font-size:36px;
+    color:#8d2452;
+    margin:15px 0;
 }
 
-.login-subtitle{
-
-    font-size:20px;
-
+.subtitle{
+    font-size:23px;
     line-height:1.8;
-
-    color:#78304c;
-
     margin-bottom:25px;
 }
 
-
-/* Password */
-
-.password{
-
+input{
     width:100%;
-
-    height:62px;
-
-    border:
-    3px solid
-    #d99ab4;
-
+    height:65px;
+    border:3px solid #e0a0ba;
     border-radius:20px;
-
     outline:none;
-
     text-align:center;
-
-    font-size:27px;
-
-    letter-spacing:8px;
-
-    color:#70213f;
-
+    font-size:30px;
+    letter-spacing:10px;
+    color:#8d2452;
     background:#fff;
-
-    margin-bottom:15px;
-
-    transition:.3s;
 }
 
-.password:focus{
-
-    border-color:#a92e5c;
-
-    box-shadow:
-    0 0 0 4px
-    rgba(169,46,92,.1);
+input:focus{
+    border-color:#a83263;
 }
-
-
-/* Open button */
 
 .open-btn{
-
     width:100%;
-
-    height:62px;
-
-    border:none;
-
+    margin-top:20px;
+    height:65px;
+    border:0;
     border-radius:20px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #b13d67,
-        #8f2450
-    );
-
+    background:#ad3764;
     color:white;
-
-    font-size:21px;
-
+    font-size:24px;
     font-weight:bold;
-
     cursor:pointer;
-
-    box-shadow:
-    0 10px 25px
-    rgba(143,36,80,.25);
-
-    transition:.2s;
+    box-shadow:0 10px 25px rgba(173,55,100,.25);
 }
 
 .open-btn:active{
-
-    transform:scale(.97);
+    transform:scale(.98);
 }
 
-
-/* Error */
-
-.error{
-
+#error{
     display:none;
-
     margin-top:18px;
-
-    color:#c62828;
-
-    font-size:18px;
-
+    color:#d62929;
+    font-size:20px;
     font-weight:bold;
-
-    animation:
-    shake
-    .4s
-    ease;
 }
 
-@keyframes shake{
+/* الصفحة الرئيسية */
 
-    0%,100%{
-        transform:translateX(0);
-    }
-
-    25%{
-        transform:translateX(-8px);
-    }
-
-    75%{
-        transform:translateX(8px);
-    }
-}
-
-
-/* =========================
-   MAIN PAGE
-========================= */
-
-.main{
-
+#mainPage{
     display:none;
-
     position:relative;
-
     z-index:2;
+    min-height:100vh;
+    padding:35px 15px 60px;
+}
 
-    max-width:680px;
-
+.container{
+    max-width:700px;
     margin:auto;
-
-    padding:
-    30px 18px
-    60px;
-}
-
-.main-card{
-
-    background:
-    rgba(255,255,255,.95);
-
+    background:rgba(255,255,255,.94);
     border-radius:35px;
+    padding:30px 18px 45px;
+    box-shadow:0 20px 60px rgba(100,30,60,.15);
+}
 
-    padding:
-    30px 18px;
-
-    box-shadow:
-    0 25px 70px
-    rgba(100,20,50,.25);
-
+.title{
     text-align:center;
-
-    animation:
-    pageOpen
-    1.2s
-    ease;
-}
-
-@keyframes pageOpen{
-
-    from{
-
-        opacity:0;
-
-        transform:
-        translateY(50px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-        translateY(0);
-    }
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.from-title{
-
+    color:#8d2452;
     font-size:34px;
-
-    font-weight:bold;
-
-    color:#902650;
-
-    margin-bottom:8px;
-
-    line-height:1.4;
+    line-height:1.5;
+    margin-bottom:10px;
 }
 
-.from-title span{
-
-    display:inline-block;
-
-    animation:
-    heartbeat
-    1.7s
-    infinite;
-}
-
-.to-title{
-
-    font-size:25px;
-
-    color:#a63c64;
-
-    margin-bottom:25px;
-}
-
-
-/* =========================
-   PHOTO AREA
-========================= */
-
-.photo-box{
-
-    width:100%;
-
-    aspect-ratio:1 / 1;
-
-    position:relative;
-
-    perspective:1200px;
-
-    margin-bottom:18px;
-}
-
-.photo-card{
-
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:30px;
-
-    overflow:hidden;
-
-    background:#fff;
-
-    border:
-    6px solid
-    #fff;
-
-    box-shadow:
-    0 18px 45px
-    rgba(80,20,40,.30);
-}
-
-.photo-card img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-}
-
-
-/* Photo flip animation */
-
-.photo-card.flip{
-
-    animation:
-    flipPhoto
-    1.4s
-    ease-in-out;
-}
-
-@keyframes flipPhoto{
-
-    0%{
-
-        transform:
-        rotateY(0deg)
-        scale(1);
-
-        opacity:1;
-    }
-
-    45%{
-
-        transform:
-        rotateY(90deg)
-        scale(.90);
-
-        opacity:.35;
-    }
-
-    100%{
-
-        transform:
-        rotateY(0deg)
-        scale(1);
-
-        opacity:1;
-    }
-}
-
-
-/* =========================
-   PHOTO COUNTER
-========================= */
-
-.photo-number{
-
-    font-size:16px;
-
-    color:#9c5270;
-
+.small-heart{
+    text-align:center;
+    font-size:45px;
     margin-bottom:15px;
 }
 
-
-/* =========================
-   DOTS
-========================= */
-
-.dots{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:7px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:28px;
+.intro{
+    text-align:center;
+    font-size:23px;
+    color:#9b4668;
+    margin-bottom:25px;
 }
 
-.dot{
+/* معرض الصور */
 
-    width:9px;
-
-    height:9px;
-
-    border-radius:50%;
-
-    background:#e0a3b8;
-
-    transition:.4s;
-}
-
-.dot.active{
-
-    width:27px;
-
-    border-radius:10px;
-
-    background:#a92e5c;
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-.message{
-
-    background:
-    linear-gradient(
-        135deg,
-        #fff5f8,
-        #ffe9f0
-    );
-
-    border-radius:28px;
-
-    padding:
-    27px 20px;
-
-    color:#70213f;
-
-    font-size:20px;
-
-    line-height:2.15;
-
-    box-shadow:
-    0 10px 30px
-    rgba(150,50,90,.12);
-
+.gallery{
+    width:100%;
     text-align:center;
 }
 
+.photo-frame{
+    width:100%;
+    height:450px;
+    background:white;
+    border-radius:30px;
+    padding:12px;
+    box-shadow:0 15px 40px rgba(100,30,60,.18);
+    perspective:1000px;
+    overflow:hidden;
+}
+
+.photo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:22px;
+    display:block;
+    transition:transform .8s ease, opacity .8s ease;
+}
+
+/* حركة التقليب */
+
+.flip-out{
+    transform:rotateY(90deg);
+    opacity:0;
+}
+
+.flip-in{
+    transform:rotateY(0deg);
+    opacity:1;
+}
+
+.photo-title{
+    margin-top:18px;
+    font-size:22px;
+    color:#8d2452;
+}
+
+.counter{
+    margin-top:10px;
+    font-size:19px;
+    color:#a35b78;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:18px 0 30px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    background:#e4a1b9;
+    border-radius:50%;
+}
+
+.dot.active{
+    width:35px;
+    border-radius:10px;
+    background:#ad3764;
+}
+
+/* الرسالة */
+
+.message{
+    background:linear-gradient(135deg,#fff2f6,#ffe3ed);
+    border-radius:30px;
+    padding:30px 20px;
+    margin-top:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(120,40,70,.08);
+}
+
+.message h2{
+    color:#a52e5d;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
 .message p{
-
-    margin-bottom:18px;
+    font-size:22px;
+    line-height:2;
+    color:#71304a;
+    margin-bottom:10px;
 }
 
-.message p:last-child{
-
-    margin-bottom:0;
-}
-
-.message .special{
-
-    color:#a52c59;
-
+.signature{
+    margin-top:25px;
     font-size:25px;
-
+    color:#a52e5d;
     font-weight:bold;
-
-    line-height:1.8;
 }
 
-
-/* =========================
-   MUSIC BUTTON
-========================= */
+/* زر الموسيقى */
 
 .music-btn{
-
-    margin-top:25px;
-
-    width:100%;
-
-    height:60px;
-
-    border:none;
-
-    border-radius:20px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #b13d67,
-        #8f2450
-    );
-
+    position:fixed;
+    bottom:25px;
+    left:20px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    border:0;
+    background:#ad3764;
     color:white;
-
-    font-size:20px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 10px 25px
-    rgba(143,36,80,.22);
+    font-size:27px;
+    box-shadow:0 8px 25px rgba(120,30,70,.3);
+    z-index:20;
 }
 
+/* الموبايل */
 
-/* =========================
-   FOOTER
-========================= */
+@media(max-width:600px){
 
-.footer{
-
-    margin-top:25px;
-
-    color:#a05270;
-
-    font-size:17px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:480px){
-
-    .login-card{
-
-        padding:
-        32px 18px;
+    .password-box{
+        padding:35px 20px;
     }
 
     .big-heart{
-
-        font-size:65px;
+        font-size:75px;
     }
 
-    .login-title{
-
-        font-size:28px;
+    .password-box h1{
+        font-size:30px;
     }
 
-    .login-subtitle{
-
-        font-size:18px;
+    .subtitle{
+        font-size:20px;
     }
 
-    .from-title{
-
-        font-size:28px;
+    .title{
+        font-size:29px;
     }
 
-    .to-title{
-
-        font-size:22px;
+    .intro{
+        font-size:20px;
     }
 
-    .message{
-
-        font-size:18px;
-
-        line-height:2.1;
+    .photo-frame{
+        height:420px;
     }
 
-    .message .special{
-
-        font-size:22px;
+    .message p{
+        font-size:20px;
+        line-height:1.9;
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<!-- قلوب الخلفية -->
 
-<!-- =========================
-     BACKGROUND HEARTS
-========================= -->
-
-<div class="hearts">
-
-    <div class="heart">❤️</div>
-
-    <div class="heart">💕</div>
-
-    <div class="heart">💗</div>
-
-    <div class="heart">❤️</div>
-
-    <div class="heart">💖</div>
-
-    <div class="heart">💕</div>
-
-    <div class="heart">❤️</div>
-
-</div>
+<div class="heart h1">❤️</div>
+<div class="heart h2">💕</div>
+<div class="heart h3">❤️</div>
+<div class="heart h4">💗</div>
+<div class="heart h5">💖</div>
 
 
+<!-- ================= شاشة الباسورد ================= -->
 
-<!-- =========================
-     PASSWORD SCREEN
-========================= -->
+<section id="passwordPage">
 
-<section
-class="login"
-id="login">
+    <div class="password-box">
 
-    <div class="login-card">
+        <div class="big-heart">❤️</div>
 
-        <div class="big-heart">
-            ❤️
-        </div>
+        <h1>Mahmoud To Omnia</h1>
 
+        <div class="small-heart">💕</div>
 
-        <div class="login-title">
-
-            Mahmoud To Omnia
-
-        </div>
-
-
-        <div class="login-subtitle">
-
-            ❤️ A Special Message For You ❤️
-
+        <div class="subtitle">
+            A Special Memory For My Love ❤️
             <br>
-
-            Enter the password
-            to open your surprise 💕
-
+            <span style="font-size:20px;">
+                Enter the password to open your surprise 💕
+            </span>
         </div>
-
 
         <input
-
-            type="password"
-
             id="password"
-
-            class="password"
-
+            type="password"
             inputmode="numeric"
-
             maxlength="7"
-
-            autocomplete="off"
-
             placeholder="•••••••"
-
         >
 
-
-        <button
-
-            class="open-btn"
-
-            id="openButton"
-
-            type="button"
-
-        >
-
-            ❤️ Open Your Message ❤️
-
+        <button class="open-btn" onclick="openLove()">
+            ❤️ Open My Message ❤️
         </button>
 
-
-        <div
-        class="error"
-        id="error">
-
-            Wrong Omnia Try Again Baby
-
+        <div id="error">
+            Wrong Omnia, Try Again Baby ❤️
         </div>
 
     </div>
@@ -900,579 +398,347 @@ id="login">
 </section>
 
 
+<!-- ================= الصفحة الرئيسية ================= -->
 
-<!-- =========================
-     MAIN PAGE
-========================= -->
+<section id="mainPage">
 
-<section
-class="main"
-id="main">
+    <div class="container">
 
-    <div class="main-card">
+        <div class="title">
+            ❤️ Mahmoud To Omnia ❤️
+        </div>
 
+        <div class="small-heart">
+            💕
+        </div>
 
-        <!-- Header -->
-
-        <div class="from-title">
-
-            <span>❤️</span>
-
-            Mahmoud To Omnia
-
-            <span>❤️</span>
-
+        <div class="intro">
+            Our Beautiful Memories 📸
+            <br>
+            Every picture has a story ❤️
         </div>
 
 
-        <div class="to-title">
+        <!-- معرض الصور -->
 
-            A Special Memory For My Love 💕
+        <div class="gallery">
 
-        </div>
-
-
-
-        <!-- =====================
-             PHOTOS FIRST
-        ====================== -->
-
-        <div class="photo-box">
-
-            <div
-            class="photo-card"
-            id="photoCard">
+            <div class="photo-frame">
 
                 <img
-                id="photo"
-                src="Badr1.jpg"
-                alt="Our Memory">
+                    id="photo"
+                    class="photo"
+                    src="Badr1.jpg"
+                    alt="Our Memory"
+                >
 
+            </div>
+
+            <div class="photo-title">
+                Our Memory ❤️
+            </div>
+
+            <div class="counter">
+                Memory <span id="number">1</span> / 13
+            </div>
+
+            <div class="dots" id="dots"></div>
+
+        </div>
+
+
+        <!-- الرسالة -->
+
+        <div class="message">
+
+            <h2>
+                ❤️ To My Beautiful Omnia ❤️
+            </h2>
+
+            <p>
+                كل سنة وإنتِ حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
+            </p>
+
+            <p>
+                كل سنة وإحنا مع بعض، وكل سنة وإنتِ سندي وراحتي وأماني
+            </p>
+
+            <p>
+                ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
+                ويجمعنا دايمًا على خير وحب.
+            </p>
+
+            <p>
+                عيد جواز سعيد علينا يا حبيبتي ❤️💍
+            </p>
+
+            <div class="signature">
+                Forever Yours ❤️
+                <br>
+                Mahmoud
             </div>
 
         </div>
 
-
-        <div
-        class="photo-number"
-        id="photoNumber">
-
-            Memory 1 / 13
-
-        </div>
-
-
-        <div
-        class="dots"
-        id="dots">
-
-        </div>
-
-
-
-        <!-- =====================
-             MESSAGE UNDER PHOTOS
-        ====================== -->
-
-        <div class="message">
-
-
-            <p class="special">
-
-                Every year, you are my love,
-                my wife,
-                and the most beautiful thing
-                that ever happened to me. ❤️
-
-            </p>
-
-
-            <p>
-
-                Every year we are together,
-                and every year you are
-                my support, my comfort,
-                and my safe place. ❤️
-
-            </p>
-
-
-            <p>
-
-                May God keep you for me,
-                and keep the love,
-                mercy and kindness between us.
-
-            </p>
-
-
-            <p>
-
-                May we always stay together
-                with love and happiness,
-                no matter how much time passes. ❤️
-
-            </p>
-
-
-            <p class="special">
-
-                Happy Wedding Anniversary
-                my love! ❤️💍
-
-            </p>
-
-
-            <p class="special">
-
-                I Love You Omnia ❤️
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Music -->
-
-        <button
-        class="music-btn"
-        id="musicButton"
-        type="button">
-
-            🎵 Play / Pause Song
-
-        </button>
-
-
-        <div class="footer">
-
-            Made with ❤️ by Mahmoud
-
-        </div>
-
-
     </div>
 
 </section>
 
 
+<!-- زر الموسيقى -->
 
-<!-- =========================
-     AUDIO
-========================= -->
+<button
+    id="musicButton"
+    class="music-btn"
+    onclick="toggleMusic()"
+    style="display:none;"
+>
+    🔊
+</button>
 
-<audio
-id="song"
-preload="auto">
 
-    <source
-    src="Song.mp3"
-    type="audio/mpeg">
+<!-- الأغنية -->
 
+<audio id="music" loop preload="auto">
+    <source src="Song.mp3" type="audio/mpeg">
 </audio>
-
 
 
 <script>
 
-
-/* =========================
-   PASSWORD
-========================= */
+/* ===============================
+   الباسورد
+================================ */
 
 const correctPassword = "2082021";
 
 
-const login =
-document.getElementById("login");
+function openLove(){
 
-const main =
-document.getElementById("main");
+    const input = document.getElementById("password");
+    const error = document.getElementById("error");
 
-const password =
-document.getElementById("password");
+    if(input.value === correctPassword){
 
-const error =
-document.getElementById("error");
+        error.style.display = "none";
 
-const openButton =
-document.getElementById("openButton");
+        document.getElementById("passwordPage").style.display = "none";
 
-const song =
-document.getElementById("song");
+        document.getElementById("mainPage").style.display = "block";
+
+        document.getElementById("musicButton").style.display = "block";
+
+        /* تشغيل الأغنية مباشرة بعد الضغط */
+        const music = document.getElementById("music");
+
+        music.play().catch(function(){
+            console.log("Audio play was blocked.");
+        });
+
+        startGallery();
+
+    }else{
+
+        error.innerText = "Wrong Omnia, Try Again Baby ❤️";
+
+        error.style.display = "block";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
 
 
-/* =========================
-   PHOTOS
-========================= */
+/* الضغط على Enter */
 
-const photos = [
+document.getElementById("password").addEventListener("keydown",function(e){
+
+    if(e.key === "Enter"){
+        openLove();
+    }
+
+});
+
+
+/* ===============================
+   الصور
+================================ */
+
+/*
+   أسماء الصور الموجودة عندك بالضبط:
+
+   Badr1.jpg
+   Badr2.jpg
+   Badr3.jpg
+   Badr4.jpg
+   Badr5.jpg
+   Badr6.jpg
+   Badr7.jpg
+   Badr8.jpg
+   Badr9.jpg
+   Badr10.jpg
+   Badr11.jpg
+   Photo1.jpg
+   Photo3.jpg
+*/
+
+const images = [
 
     "Badr1.jpg",
-
     "Badr2.jpg",
-
     "Badr3.jpg",
-
     "Badr4.jpg",
-
     "Badr5.jpg",
-
     "Badr6.jpg",
-
     "Badr7.jpg",
-
     "Badr8.jpg",
-
     "Badr9.jpg",
-
     "Badr10.jpg",
-
     "Badr11.jpg",
-
     "Photo1.jpg",
-
     "Photo3.jpg"
 
 ];
 
 
-let currentPhoto = 0;
-
-let slideshow = null;
-
-
-const photo =
-document.getElementById("photo");
-
-const photoCard =
-document.getElementById("photoCard");
-
-const dotsContainer =
-document.getElementById("dots");
-
-const photoNumber =
-document.getElementById("photoNumber");
+let current = 0;
+let galleryStarted = false;
 
 
-/* =========================
-   CREATE PHOTO DOTS
-========================= */
+/* إنشاء النقاط */
 
-photos.forEach(
+function createDots(){
 
-    function(item,index){
+    const dots = document.getElementById("dots");
 
-        const dot =
-        document.createElement("span");
+    dots.innerHTML = "";
+
+    images.forEach(function(image,index){
+
+        const dot = document.createElement("div");
 
         dot.className = "dot";
 
         if(index === 0){
-
             dot.classList.add("active");
-
         }
 
-        dotsContainer.appendChild(dot);
-
-    }
-
-);
-
-
-const dots =
-document.querySelectorAll(".dot");
-
-
-/* =========================
-   OPEN LOVE PAGE
-========================= */
-
-function openLove(){
-
-
-    const enteredPassword =
-    password.value.trim();
-
-
-    /* WRONG PASSWORD */
-
-    if(
-        enteredPassword !==
-        correctPassword
-    ){
-
-        error.style.display =
-        "block";
-
-        error.innerText =
-        "Wrong Omnia Try Again Baby";
-
-        password.value = "";
-
-        password.focus();
-
-        return;
-
-    }
-
-
-    /* CORRECT PASSWORD */
-
-    error.style.display =
-    "none";
-
-
-    login.style.display =
-    "none";
-
-
-    main.style.display =
-    "block";
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
+        dots.appendChild(dot);
 
     });
 
-
-    /*
-       Start music.
-
-       Because this function is
-       triggered by the user's click,
-       mobile browsers normally
-       allow playback.
-    */
-
-    song.currentTime = 0;
-
-    song.play().catch(
-
-        function(){
-
-            console.log(
-                "Music autoplay was blocked."
-            );
-
-        }
-
-    );
-
-
-    /* Start slideshow */
-
-    startSlideshow();
-
 }
 
 
-/* =========================
-   OPEN BUTTON
-========================= */
-
-openButton.addEventListener(
-
-    "click",
-
-    openLove
-
-);
-
-
-/* =========================
-   ENTER KEY
-========================= */
-
-password.addEventListener(
-
-    "keydown",
-
-    function(event){
-
-        if(
-            event.key === "Enter"
-        ){
-
-            openLove();
-
-        }
-
-    }
-
-);
-
-
-/* =========================
-   CHANGE PHOTO
-========================= */
+/* تغيير الصورة */
 
 function changePhoto(){
 
+    const photo = document.getElementById("photo");
 
-    /* Start flip */
+    const dots = document.querySelectorAll(".dot");
 
-    photoCard.classList.remove(
-        "flip"
-    );
+    photo.classList.add("flip-out");
 
+    setTimeout(function(){
 
-    /*
-       Force browser to restart
-       animation.
-    */
+        current++;
 
-    void photoCard.offsetWidth;
-
-
-    photoCard.classList.add(
-        "flip"
-    );
-
-
-    /*
-       Change photo while
-       the card is turned.
-    */
-
-    setTimeout(
-
-        function(){
-
-            currentPhoto++;
-
-            if(
-                currentPhoto >=
-                photos.length
-            ){
-
-                currentPhoto = 0;
-
-            }
-
-
-            photo.src =
-            photos[currentPhoto];
-
-
-            /* Update dots */
-
-            dots.forEach(
-
-                function(dot,index){
-
-                    dot.classList.toggle(
-
-                        "active",
-
-                        index ===
-                        currentPhoto
-
-                    );
-
-                }
-
-            );
-
-
-            /* Update number */
-
-            photoNumber.innerText =
-
-                "Memory " +
-
-                (currentPhoto + 1) +
-
-                " / " +
-
-                photos.length;
-
-
-        },
-
-        650
-
-    );
-
-}
-
-
-/* =========================
-   START SLIDESHOW
-========================= */
-
-function startSlideshow(){
-
-
-    if(slideshow){
-
-        clearInterval(slideshow);
-
-    }
-
-
-    /*
-       Change every 4 seconds
-    */
-
-    slideshow =
-    setInterval(
-
-        changePhoto,
-
-        4000
-
-    );
-
-}
-
-
-/* =========================
-   MUSIC BUTTON
-========================= */
-
-const musicButton =
-document.getElementById(
-    "musicButton"
-);
-
-
-musicButton.addEventListener(
-
-    "click",
-
-    function(){
-
-        if(song.paused){
-
-            song.play();
-
-            musicButton.innerText =
-            "🎵 Pause Song";
-
-        }else{
-
-            song.pause();
-
-            musicButton.innerText =
-            "🎵 Play Song";
-
+        if(current >= images.length){
+            current = 0;
         }
 
+        photo.src = images[current];
+
+        document.getElementById("number").innerText = current + 1;
+
+        dots.forEach(function(dot,index){
+
+            dot.classList.toggle(
+                "active",
+                index === current
+            );
+
+        });
+
+        photo.onload = function(){
+
+            photo.classList.remove("flip-out");
+            photo.classList.add("flip-in");
+
+        };
+
+    },400);
+
+}
+
+
+/* بدء الصور */
+
+function startGallery(){
+
+    if(galleryStarted){
+        return;
     }
 
-);
+    galleryStarted = true;
 
+    createDots();
+
+    setTimeout(function(){
+
+        setInterval(changePhoto,4000);
+
+    },1500);
+
+}
+
+
+/* ===============================
+   الموسيقى
+================================ */
+
+function toggleMusic(){
+
+    const music = document.getElementById("music");
+
+    const button = document.getElementById("musicButton");
+
+    if(music.paused){
+
+        music.play();
+
+        button.innerText = "🔊";
+
+    }else{
+
+        music.pause();
+
+        button.innerText = "🔇";
+
+    }
+
+}
+
+
+/* ===============================
+   منع الصورة المكسورة
+================================ */
+
+document.getElementById("photo").addEventListener("error",function(){
+
+    this.alt = "Image not found";
+
+    this.style.objectFit = "contain";
+
+    console.log("Image not found: " + this.src);
+
+});
 
 </script>
 
-
 </body>
-
 </html>
