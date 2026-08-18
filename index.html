@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,374 +9,444 @@
 
 <style>
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    min-height:100vh;
-    font-family:Tahoma,Arial,sans-serif;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
     background:
-        radial-gradient(circle at 20% 20%, #fff 0 4%, transparent 5%),
-        linear-gradient(135deg,#ffeaf2,#ffd1df,#fff0f5);
-    color:#702743;
-    overflow-x:hidden;
+        radial-gradient(circle at top, #fff8fb 0%, #ffdce8 45%, #f7b7cb 100%);
+    color: #68233f;
+    overflow-x: hidden;
 }
 
-/* قلوب الخلفية */
 
-.heart{
-    position:fixed;
-    color:#f39ab8;
-    opacity:.35;
-    font-size:35px;
-    animation:float 8s linear infinite;
-    pointer-events:none;
-    z-index:0;
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.h1{left:5%;top:20%;animation-delay:0s}
-.h2{left:85%;top:15%;animation-delay:2s}
-.h3{left:15%;top:70%;animation-delay:4s}
-.h4{left:80%;top:75%;animation-delay:1s}
-.h5{left:45%;top:5%;animation-delay:3s}
+.heart {
+    position: absolute;
+    bottom: -60px;
+    font-size: 25px;
+    opacity: 0;
+    animation: floatHeart linear infinite;
+}
 
-@keyframes float{
-    0%{
-        transform:translateY(0) rotate(0deg);
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
     }
-    50%{
-        transform:translateY(-35px) rotate(15deg);
+
+    15% {
+        opacity: 0.7;
     }
-    100%{
-        transform:translateY(0) rotate(0deg);
-    }
-}
 
-/* شاشة الباسورد */
-
-#passwordPage{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-    position:relative;
-    z-index:5;
-}
-
-.password-box{
-    width:100%;
-    max-width:520px;
-    background:rgba(255,255,255,.95);
-    border-radius:35px;
-    padding:40px 25px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(120,40,70,.18);
-}
-
-.big-heart{
-    font-size:85px;
-    animation:heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat{
-    0%,100%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.12);
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
     }
 }
 
-.password-box h1{
-    font-size:36px;
-    color:#8d2452;
-    margin:15px 0;
+
+/* =========================
+   LOGIN SCREEN
+========================= */
+
+#login {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 5;
 }
 
-.subtitle{
-    font-size:23px;
-    line-height:1.8;
-    margin-bottom:25px;
+.login-box {
+    width: 100%;
+    max-width: 540px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 35px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow:
+        0 25px 70px rgba(100, 25, 55, 0.22);
 }
 
-input{
-    width:100%;
-    height:65px;
-    border:3px solid #e0a0ba;
-    border-radius:20px;
-    outline:none;
-    text-align:center;
-    font-size:30px;
-    letter-spacing:10px;
-    color:#8d2452;
-    background:#fff;
+.big-heart {
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 20px;
+    animation: heartBeat 1.5s infinite;
 }
 
-input:focus{
-    border-color:#a83263;
-}
+@keyframes heartBeat {
 
-.open-btn{
-    width:100%;
-    margin-top:20px;
-    height:65px;
-    border:0;
-    border-radius:20px;
-    background:#ad3764;
-    color:white;
-    font-size:24px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(173,55,100,.25);
-}
-
-.open-btn:active{
-    transform:scale(.98);
-}
-
-#error{
-    display:none;
-    margin-top:18px;
-    color:#d62929;
-    font-size:20px;
-    font-weight:bold;
-}
-
-/* الصفحة الرئيسية */
-
-#mainPage{
-    display:none;
-    position:relative;
-    z-index:2;
-    min-height:100vh;
-    padding:35px 15px 60px;
-}
-
-.container{
-    max-width:700px;
-    margin:auto;
-    background:rgba(255,255,255,.94);
-    border-radius:35px;
-    padding:30px 18px 45px;
-    box-shadow:0 20px 60px rgba(100,30,60,.15);
-}
-
-.title{
-    text-align:center;
-    color:#8d2452;
-    font-size:34px;
-    line-height:1.5;
-    margin-bottom:10px;
-}
-
-.small-heart{
-    text-align:center;
-    font-size:45px;
-    margin-bottom:15px;
-}
-
-.intro{
-    text-align:center;
-    font-size:23px;
-    color:#9b4668;
-    margin-bottom:25px;
-}
-
-/* معرض الصور */
-
-.gallery{
-    width:100%;
-    text-align:center;
-}
-
-.photo-frame{
-    width:100%;
-    height:450px;
-    background:white;
-    border-radius:30px;
-    padding:12px;
-    box-shadow:0 15px 40px rgba(100,30,60,.18);
-    perspective:1000px;
-    overflow:hidden;
-}
-
-.photo{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:22px;
-    display:block;
-    transition:transform .8s ease, opacity .8s ease;
-}
-
-/* حركة التقليب */
-
-.flip-out{
-    transform:rotateY(90deg);
-    opacity:0;
-}
-
-.flip-in{
-    transform:rotateY(0deg);
-    opacity:1;
-}
-
-.photo-title{
-    margin-top:18px;
-    font-size:22px;
-    color:#8d2452;
-}
-
-.counter{
-    margin-top:10px;
-    font-size:19px;
-    color:#a35b78;
-}
-
-.dots{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:18px 0 30px;
-}
-
-.dot{
-    width:12px;
-    height:12px;
-    background:#e4a1b9;
-    border-radius:50%;
-}
-
-.dot.active{
-    width:35px;
-    border-radius:10px;
-    background:#ad3764;
-}
-
-/* الرسالة */
-
-.message{
-    background:linear-gradient(135deg,#fff2f6,#ffe3ed);
-    border-radius:30px;
-    padding:30px 20px;
-    margin-top:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(120,40,70,.08);
-}
-
-.message h2{
-    color:#a52e5d;
-    font-size:28px;
-    margin-bottom:20px;
-}
-
-.message p{
-    font-size:22px;
-    line-height:2;
-    color:#71304a;
-    margin-bottom:10px;
-}
-
-.signature{
-    margin-top:25px;
-    font-size:25px;
-    color:#a52e5d;
-    font-weight:bold;
-}
-
-/* زر الموسيقى */
-
-.music-btn{
-    position:fixed;
-    bottom:25px;
-    left:20px;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    border:0;
-    background:#ad3764;
-    color:white;
-    font-size:27px;
-    box-shadow:0 8px 25px rgba(120,30,70,.3);
-    z-index:20;
-}
-
-/* الموبايل */
-
-@media(max-width:600px){
-
-    .password-box{
-        padding:35px 20px;
+    0%,100% {
+        transform: scale(1);
     }
 
-    .big-heart{
-        font-size:75px;
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.login-box h1 {
+    color: #8f2855;
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.login-box h2 {
+    color: #9c4165;
+    font-size: 23px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.login-box p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+#password {
+    width: 100%;
+    height: 65px;
+    border: 3px solid #d996b0;
+    border-radius: 20px;
+    background: white;
+    color: #7c2148;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 7px;
+    outline: none;
+}
+
+#password:focus {
+    border-color: #a82f62;
+    box-shadow: 0 0 15px rgba(168,47,98,.15);
+}
+
+.open-btn {
+    width: 100%;
+    height: 65px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    background: #b33668;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(130,30,70,.2);
+}
+
+.open-btn:active {
+    transform: scale(.98);
+}
+
+#error {
+    min-height: 30px;
+    margin-top: 15px;
+    color: #d62828;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#content {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 35px 15px 80px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    color: #8f2855;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.header p {
+    font-size: 23px;
+    color: #9c4165;
+}
+
+
+/* =========================
+   PHOTO SLIDESHOW
+========================= */
+
+.photo-area {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    height: 520px;
+    margin: 30px auto 15px;
+    perspective: 1400px;
+}
+
+.photo-card {
+    position: absolute;
+    inset: 0;
+    padding: 12px;
+    background: white;
+    border-radius: 32px;
+    box-shadow:
+        0 20px 50px rgba(90, 20, 50, 0.22);
+
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    transition:
+        transform 1.2s ease,
+        opacity 1.2s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 23px;
+}
+
+
+/* الصورة الحالية */
+
+.photo-card.active {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+    z-index: 5;
+}
+
+
+/* الصورة اللي هتظهر */
+
+.photo-card.next {
+    opacity: 0;
+    transform: rotateY(90deg) scale(.88);
+    z-index: 1;
+}
+
+
+/* الصورة القديمة */
+
+.photo-card.prev {
+    opacity: 0;
+    transform: rotateY(-90deg) scale(.88);
+    z-index: 1;
+}
+
+
+/* =========================
+   PHOTO NUMBER
+========================= */
+
+.photo-number {
+    text-align: center;
+    color: #9b4164;
+    font-size: 20px;
+    margin: 20px 0 35px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    width: 100%;
+    background: rgba(255,255,255,.94);
+    border-radius: 32px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow:
+        0 15px 45px rgba(100,20,50,.15);
+
+    font-size: 22px;
+    line-height: 2.1;
+}
+
+.message-title {
+    color: #a52f60;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.message p {
+    margin-bottom: 18px;
+}
+
+.final {
+    color: #a52f60;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+
+    width: 62px;
+    height: 62px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #b33668;
+    color: white;
+
+    font-size: 26px;
+
+    cursor: pointer;
+
+    z-index: 100;
+
+    box-shadow:
+        0 8px 25px rgba(80,20,40,.25);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .login-box {
+        padding: 35px 20px;
+        border-radius: 30px;
     }
 
-    .password-box h1{
-        font-size:30px;
+    .big-heart {
+        font-size: 70px;
     }
 
-    .subtitle{
-        font-size:20px;
+    .login-box h1 {
+        font-size: 30px;
     }
 
-    .title{
-        font-size:29px;
+    .login-box h2 {
+        font-size: 20px;
     }
 
-    .intro{
-        font-size:20px;
+    .login-box p {
+        font-size: 18px;
     }
 
-    .photo-frame{
-        height:420px;
+    .photo-area {
+        height: 430px;
     }
 
-    .message p{
-        font-size:20px;
-        line-height:1.9;
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .header p {
+        font-size: 20px;
+    }
+
+    .message {
+        font-size: 20px;
+        padding: 30px 18px;
+    }
+
+    .message-title {
+        font-size: 26px;
+    }
+
+    .final {
+        font-size: 25px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- قلوب الخلفية -->
 
-<div class="heart h1">❤️</div>
-<div class="heart h2">💕</div>
-<div class="heart h3">❤️</div>
-<div class="heart h4">💗</div>
-<div class="heart h5">💖</div>
+<!-- =========================
+     FLOATING HEARTS
+========================= -->
+
+<div class="hearts" id="hearts"></div>
 
 
-<!-- ================= شاشة الباسورد ================= -->
+<!-- =========================
+     PASSWORD PAGE
+========================= -->
 
-<section id="passwordPage">
+<section id="login">
 
-    <div class="password-box">
+    <div class="login-box">
 
-        <div class="big-heart">❤️</div>
-
-        <h1>Mahmoud To Omnia</h1>
-
-        <div class="small-heart">💕</div>
-
-        <div class="subtitle">
-            A Special Memory For My Love ❤️
-            <br>
-            <span style="font-size:20px;">
-                Enter the password to open your surprise 💕
-            </span>
+        <div class="big-heart">
+            ❤️
         </div>
+
+        <h1>
+            Mahmoud To Omnia
+        </h1>
+
+        <h2>
+            A Special Memory For My Love 💕
+        </h2>
+
+        <p>
+            اكتبي الباسورد عشان تفتحي رسالتك ❤️
+        </p>
 
         <input
             id="password"
@@ -383,360 +454,563 @@ input:focus{
             inputmode="numeric"
             maxlength="7"
             placeholder="•••••••"
+            autocomplete="off"
         >
 
-        <button class="open-btn" onclick="openLove()">
-            ❤️ Open My Message ❤️
+        <button
+            class="open-btn"
+            onclick="openMessage()"
+        >
+            ❤️ افتحي رسالتك ❤️
         </button>
 
-        <div id="error">
-            Wrong Omnia, Try Again Baby ❤️
-        </div>
+        <div id="error"></div>
 
     </div>
 
 </section>
 
 
-<!-- ================= الصفحة الرئيسية ================= -->
 
-<section id="mainPage">
+<!-- =========================
+     MAIN PAGE
+========================= -->
 
-    <div class="container">
+<section id="content">
 
-        <div class="title">
+
+    <div class="header">
+
+        <h1>
             ❤️ Mahmoud To Omnia ❤️
-        </div>
+        </h1>
 
-        <div class="small-heart">
-            💕
-        </div>
-
-        <div class="intro">
-            Our Beautiful Memories 📸
-            <br>
-            Every picture has a story ❤️
-        </div>
-
-
-        <!-- معرض الصور -->
-
-        <div class="gallery">
-
-            <div class="photo-frame">
-
-                <img
-                    id="photo"
-                    class="photo"
-                    src="Badr1.jpg"
-                    alt="Our Memory"
-                >
-
-            </div>
-
-            <div class="photo-title">
-                Our Memory ❤️
-            </div>
-
-            <div class="counter">
-                Memory <span id="number">1</span> / 13
-            </div>
-
-            <div class="dots" id="dots"></div>
-
-        </div>
-
-
-        <!-- الرسالة -->
-
-        <div class="message">
-
-            <h2>
-                ❤️ To My Beautiful Omnia ❤️
-            </h2>
-
-            <p>
-                كل سنة وإنتِ حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
-            </p>
-
-            <p>
-                كل سنة وإحنا مع بعض، وكل سنة وإنتِ سندي وراحتي وأماني
-            </p>
-
-            <p>
-                ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
-                ويجمعنا دايمًا على خير وحب.
-            </p>
-
-            <p>
-                عيد جواز سعيد علينا يا حبيبتي ❤️💍
-            </p>
-
-            <div class="signature">
-                Forever Yours ❤️
-                <br>
-                Mahmoud
-            </div>
-
-        </div>
+        <p>
+            أجمل ذكرياتنا مع بعض 💕
+        </p>
 
     </div>
+
+
+
+    <!-- =========================
+         PHOTOS
+    ========================= -->
+
+    <div
+        class="photo-area"
+        id="photoArea"
+    ></div>
+
+
+    <div
+        class="photo-number"
+        id="photoNumber"
+    >
+        Memory 1 / 13
+    </div>
+
+
+
+    <!-- =========================
+         MESSAGE
+    ========================= -->
+
+    <div class="message">
+
+        <div class="message-title">
+            ❤️ إلى أمنية… حبيبتي ومراتي ❤️
+        </div>
+
+
+        <p>
+            كل سنة وإنتِ حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
+        </p>
+
+
+        <p>
+            كل سنة وإحنا مع بعض، وكل سنة وإنتِ سندي وراحتي وأماني
+        </p>
+
+
+        <p>
+            ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
+            ويجمعنا دايمًا على خير وحب.
+        </p>
+
+
+        <p class="final">
+            عيد جواز سعيد علينا يا حبيبتي ❤️💍
+        </p>
+
+
+        <p>
+            بحبك يا Omnia ❤️
+        </p>
+
+
+        <p>
+            من Mahmoud إلى Omnia 💕
+        </p>
+
+    </div>
+
 
 </section>
 
 
-<!-- زر الموسيقى -->
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+    id="song"
+    loop
+    preload="auto"
+>
+    <source
+        src="Song.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
 
 <button
-    id="musicButton"
     class="music-btn"
+    id="musicButton"
     onclick="toggleMusic()"
-    style="display:none;"
 >
     🔊
 </button>
 
 
-<!-- الأغنية -->
-
-<audio id="music" loop preload="auto">
-    <source src="Song.mp3" type="audio/mpeg">
-</audio>
-
 
 <script>
 
-/* ===============================
-   الباسورد
-================================ */
 
-const correctPassword = "2082021";
+/* =========================
+   PASSWORD
+========================= */
 
-
-function openLove(){
-
-    const input = document.getElementById("password");
-    const error = document.getElementById("error");
-
-    if(input.value === correctPassword){
-
-        error.style.display = "none";
-
-        document.getElementById("passwordPage").style.display = "none";
-
-        document.getElementById("mainPage").style.display = "block";
-
-        document.getElementById("musicButton").style.display = "block";
-
-        /* تشغيل الأغنية مباشرة بعد الضغط */
-        const music = document.getElementById("music");
-
-        music.play().catch(function(){
-            console.log("Audio play was blocked.");
-        });
-
-        startGallery();
-
-    }else{
-
-        error.innerText = "Wrong Omnia, Try Again Baby ❤️";
-
-        error.style.display = "block";
-
-        input.value = "";
-
-        input.focus();
-
-    }
-
-}
+const PASSWORD = "2082021";
 
 
-/* الضغط على Enter */
+/* =========================
+   EXACT FILE NAMES
+========================= */
 
-document.getElementById("password").addEventListener("keydown",function(e){
-
-    if(e.key === "Enter"){
-        openLove();
-    }
-
-});
-
-
-/* ===============================
-   الصور
-================================ */
-
-/*
-   أسماء الصور الموجودة عندك بالضبط:
-
-   Badr1.jpg
-   Badr2.jpg
-   Badr3.jpg
-   Badr4.jpg
-   Badr5.jpg
-   Badr6.jpg
-   Badr7.jpg
-   Badr8.jpg
-   Badr9.jpg
-   Badr10.jpg
-   Badr11.jpg
-   Photo1.jpg
-   Photo3.jpg
-*/
-
-const images = [
+const photos = [
 
     "Badr1.jpg",
+
     "Badr2.jpg",
+
     "Badr3.jpg",
+
     "Badr4.jpg",
+
     "Badr5.jpg",
+
     "Badr6.jpg",
+
     "Badr7.jpg",
+
     "Badr8.jpg",
+
     "Badr9.jpg",
+
     "Badr10.jpg",
+
     "Badr11.jpg",
+
     "Photo1.jpg",
+
     "Photo3.jpg"
 
 ];
 
 
-let current = 0;
-let galleryStarted = false;
+let currentPhoto = 0;
+
+let slideTimer = null;
 
 
-/* إنشاء النقاط */
+/* =========================
+   OPEN MESSAGE
+========================= */
 
-function createDots(){
+function openMessage() {
 
-    const dots = document.getElementById("dots");
+    const passwordInput =
+        document.getElementById("password");
 
-    dots.innerHTML = "";
+    const error =
+        document.getElementById("error");
 
-    images.forEach(function(image,index){
+    const password =
+        passwordInput.value.trim();
 
-        const dot = document.createElement("div");
 
-        dot.className = "dot";
+    /* PASSWORD CORRECT */
 
-        if(index === 0){
-            dot.classList.add("active");
-        }
+    if (password === PASSWORD) {
 
-        dots.appendChild(dot);
+        error.textContent = "";
 
-    });
+        document.getElementById("login").style.display = "none";
+
+        document.getElementById("content").style.display = "block";
+
+
+        /* CREATE PHOTOS */
+
+        createPhotos();
+
+
+        /* START SLIDESHOW */
+
+        startSlideshow();
+
+
+        /* START MUSIC */
+
+        playMusic();
+
+
+        window.scrollTo(0, 0);
+
+    }
+
+
+    /* PASSWORD WRONG */
+
+    else {
+
+        error.textContent =
+            "Wrong Omnia Try Again Baby ❤️";
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
+
+    }
 
 }
 
 
-/* تغيير الصورة */
+/* =========================
+   ENTER KEY
+========================= */
 
-function changePhoto(){
+document
+.getElementById("password")
+.addEventListener("keydown", function(event) {
 
-    const photo = document.getElementById("photo");
+    if (event.key === "Enter") {
 
-    const dots = document.querySelectorAll(".dot");
+        openMessage();
 
-    photo.classList.add("flip-out");
+    }
 
-    setTimeout(function(){
+});
 
-        current++;
 
-        if(current >= images.length){
-            current = 0;
+/* =========================
+   CREATE PHOTO CARDS
+========================= */
+
+function createPhotos() {
+
+    const area =
+        document.getElementById("photoArea");
+
+
+    area.innerHTML = "";
+
+
+    photos.forEach(function(photo, index) {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "photo-card";
+
+
+        if (index === 0) {
+
+            card.classList.add("active");
+
         }
 
-        photo.src = images[current];
+        else {
 
-        document.getElementById("number").innerText = current + 1;
+            card.classList.add("next");
 
-        dots.forEach(function(dot,index){
+        }
 
-            dot.classList.toggle(
-                "active",
-                index === current
+
+        const image =
+            document.createElement("img");
+
+
+        image.src = photo;
+
+
+        image.alt =
+            "Our Memory " + (index + 1);
+
+
+        image.onerror = function() {
+
+            console.log(
+                "Image not found: " + photo
             );
-
-        });
-
-        photo.onload = function(){
-
-            photo.classList.remove("flip-out");
-            photo.classList.add("flip-in");
 
         };
 
-    },400);
+
+        card.appendChild(image);
+
+
+        area.appendChild(card);
+
+    });
+
+
+    updatePhotoNumber();
 
 }
 
 
-/* بدء الصور */
+/* =========================
+   NEXT PHOTO
+========================= */
 
-function startGallery(){
+function nextPhoto() {
 
-    if(galleryStarted){
+    const cards =
+        document.querySelectorAll(".photo-card");
+
+
+    if (!cards.length) {
         return;
     }
 
-    galleryStarted = true;
 
-    createDots();
+    /* OLD PHOTO */
 
-    setTimeout(function(){
+    cards[currentPhoto]
+        .classList.remove("active");
 
-        setInterval(changePhoto,4000);
+    cards[currentPhoto]
+        .classList.add("prev");
 
-    },1500);
+
+    /* NEXT INDEX */
+
+    currentPhoto++;
+
+
+    if (currentPhoto >= cards.length) {
+
+        currentPhoto = 0;
+
+    }
+
+
+    /* NEW PHOTO */
+
+    cards[currentPhoto]
+        .classList.remove("next");
+
+    cards[currentPhoto]
+        .classList.remove("prev");
+
+    cards[currentPhoto]
+        .classList.add("active");
+
+
+    updatePhotoNumber();
 
 }
 
 
-/* ===============================
-   الموسيقى
-================================ */
+/* =========================
+   START SLIDESHOW
+========================= */
 
-function toggleMusic(){
+function startSlideshow() {
 
-    const music = document.getElementById("music");
+    if (slideTimer) {
 
-    const button = document.getElementById("musicButton");
+        clearInterval(slideTimer);
 
-    if(music.paused){
+    }
 
-        music.play();
 
-        button.innerText = "🔊";
+    slideTimer =
+        setInterval(function() {
 
-    }else{
+            nextPhoto();
 
-        music.pause();
+        }, 4000);
 
-        button.innerText = "🔇";
+}
+
+
+/* =========================
+   PHOTO NUMBER
+========================= */
+
+function updatePhotoNumber() {
+
+    document.getElementById("photoNumber")
+        .textContent =
+        "Memory " +
+        (currentPhoto + 1) +
+        " / " +
+        photos.length;
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function playMusic() {
+
+    const song =
+        document.getElementById("song");
+
+
+    song.volume = 0.8;
+
+
+    const playPromise =
+        song.play();
+
+
+    if (playPromise !== undefined) {
+
+        playPromise
+        .then(function() {
+
+            document.getElementById("musicButton")
+                .textContent = "🔊";
+
+        })
+        .catch(function() {
+
+            /*
+             بعض الموبايلات تمنع التشغيل التلقائي.
+             لكن لأن التشغيل حصل بعد ضغطة الباسورد
+             المفروض يشتغل.
+            */
+
+            document.getElementById("musicButton")
+                .textContent = "▶️";
+
+        });
 
     }
 
 }
 
 
-/* ===============================
-   منع الصورة المكسورة
-================================ */
+/* =========================
+   MUSIC BUTTON
+========================= */
 
-document.getElementById("photo").addEventListener("error",function(){
+function toggleMusic() {
 
-    this.alt = "Image not found";
+    const song =
+        document.getElementById("song");
 
-    this.style.objectFit = "contain";
+    const button =
+        document.getElementById("musicButton");
 
-    console.log("Image not found: " + this.src);
 
-});
+    if (song.paused) {
+
+        song.play()
+            .then(function() {
+
+                button.textContent = "🔊";
+
+            })
+            .catch(function() {
+
+                button.textContent = "▶️";
+
+            });
+
+    }
+
+    else {
+
+        song.pause();
+
+        button.textContent = "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createFloatingHearts() {
+
+    const container =
+        document.getElementById("hearts");
+
+
+    for (let i = 0; i < 20; i++) {
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className = "heart";
+
+
+        heart.textContent =
+            Math.random() > 0.5
+            ? "❤️"
+            : "💕";
+
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+
+        heart.style.animationDuration =
+            (6 + Math.random() * 8) + "s";
+
+
+        heart.style.animationDelay =
+            Math.random() * 8 + "s";
+
+
+        heart.style.fontSize =
+            (18 + Math.random() * 22) + "px";
+
+
+        container.appendChild(heart);
+
+    }
+
+}
+
+
+createFloatingHearts();
+
 
 </script>
 
