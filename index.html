@@ -3,293 +3,232 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Mahmoud To Omnia ❤️</title>
 
 <style>
 
-/* =========================
-   GENERAL
-========================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+    margin:0;
+    min-height:100vh;
+    font-family:Arial,Tahoma,sans-serif;
+    background:linear-gradient(
+        135deg,
+        #ffdce8,
+        #fff5f8,
+        #f7c5d7
+    );
+    color:#762344;
+    text-align:center;
 }
-
-body {
-    min-height: 100vh;
-    font-family: Tahoma, Arial, sans-serif;
-    background:
-        radial-gradient(circle at top, #fff8fb 0%, #ffdce8 45%, #f7b7cb 100%);
-    color: #68233f;
-    overflow-x: hidden;
-}
-
 
 /* =========================
-   FLOATING HEARTS
+   PASSWORD PAGE
 ========================= */
 
-.hearts {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
+#passwordPage{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-.heart {
-    position: absolute;
-    bottom: -60px;
-    font-size: 25px;
-    opacity: 0;
-    animation: floatHeart linear infinite;
+.password-box{
+    width:100%;
+    max-width:500px;
+    background:rgba(255,255,255,0.97);
+    border-radius:35px;
+    padding:45px 25px;
+    box-shadow:0 15px 45px rgba(100,30,60,0.18);
 }
 
-@keyframes floatHeart {
+.big-heart{
+    font-size:75px;
+    animation:heartbeat 1.5s infinite;
+}
 
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
     }
 
-    15% {
-        opacity: 0.7;
+    50%{
+        transform:scale(1.12);
     }
 
-    100% {
-        transform: translateY(-115vh) rotate(360deg);
-        opacity: 0;
+}
+
+.password-box h1{
+    font-size:38px;
+    margin:15px 0;
+    color:#8d2450;
+    direction:ltr;
+}
+
+.password-box p{
+    font-size:22px;
+    margin:15px 0;
+}
+
+#password{
+    width:100%;
+    padding:18px;
+    border:3px solid #d98aaa;
+    border-radius:18px;
+    font-size:25px;
+    text-align:center;
+    outline:none;
+    margin-top:15px;
+}
+
+.open-btn{
+    width:100%;
+    margin-top:18px;
+    padding:18px;
+    border:none;
+    border-radius:18px;
+    background:#b23867;
+    color:white;
+    font-size:23px;
+    cursor:pointer;
+}
+
+.open-btn:active{
+    transform:scale(0.98);
+}
+
+#error{
+    color:#d62828;
+    font-size:20px;
+    font-weight:bold;
+    min-height:30px;
+    margin-top:15px;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+#mainPage{
+    display:none;
+    padding:25px 12px 60px;
+}
+
+.title{
+    direction:ltr;
+    font-size:42px;
+    font-weight:bold;
+    color:#8d2450;
+    margin:15px 0 8px;
+}
+
+.subtitle{
+    direction:ltr;
+    font-size:24px;
+    margin:10px 0 25px;
+    color:#8d4965;
+}
+
+
+/* =========================
+   PHOTO SLIDER
+========================= */
+
+.slider-container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+}
+
+.photo-card{
+    background:white;
+    border-radius:30px;
+    padding:12px;
+    box-shadow:0 15px 40px rgba(100,30,60,0.18);
+    overflow:hidden;
+}
+
+.photo-card img{
+    display:block;
+    width:100%;
+    height:65vh;
+    min-height:350px;
+    max-height:650px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:22px;
+}
+
+
+/* =========================
+   FLIP ANIMATION
+========================= */
+
+.flip{
+    animation:flipPhoto 0.9s ease;
+}
+
+@keyframes flipPhoto{
+
+    0%{
+        transform:
+        perspective(900px)
+        rotateY(90deg);
+
+        opacity:0;
     }
-}
 
+    100%{
+        transform:
+        perspective(900px)
+        rotateY(0deg);
 
-/* =========================
-   LOGIN SCREEN
-========================= */
-
-#login {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    z-index: 5;
-}
-
-.login-box {
-    width: 100%;
-    max-width: 540px;
-    background: rgba(255,255,255,0.96);
-    border-radius: 35px;
-    padding: 40px 25px;
-    text-align: center;
-    box-shadow:
-        0 25px 70px rgba(100, 25, 55, 0.22);
-}
-
-.big-heart {
-    font-size: 80px;
-    line-height: 1;
-    margin-bottom: 20px;
-    animation: heartBeat 1.5s infinite;
-}
-
-@keyframes heartBeat {
-
-    0%,100% {
-        transform: scale(1);
+        opacity:1;
     }
 
-    50% {
-        transform: scale(1.12);
-    }
-}
-
-.login-box h1 {
-    color: #8f2855;
-    font-size: 38px;
-    margin-bottom: 18px;
-}
-
-.login-box h2 {
-    color: #9c4165;
-    font-size: 23px;
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-.login-box p {
-    font-size: 20px;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-#password {
-    width: 100%;
-    height: 65px;
-    border: 3px solid #d996b0;
-    border-radius: 20px;
-    background: white;
-    color: #7c2148;
-    text-align: center;
-    font-size: 28px;
-    letter-spacing: 7px;
-    outline: none;
-}
-
-#password:focus {
-    border-color: #a82f62;
-    box-shadow: 0 0 15px rgba(168,47,98,.15);
-}
-
-.open-btn {
-    width: 100%;
-    height: 65px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 20px;
-    background: #b33668;
-    color: white;
-    font-size: 23px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(130,30,70,.2);
-}
-
-.open-btn:active {
-    transform: scale(.98);
-}
-
-#error {
-    min-height: 30px;
-    margin-top: 15px;
-    color: #d62828;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 
 /* =========================
-   MAIN CONTENT
+   COUNTER
 ========================= */
 
-#content {
-    display: none;
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 850px;
-    margin: auto;
-    padding: 35px 15px 80px;
+.counter{
+    font-size:20px;
+    margin:18px 0;
+    direction:ltr;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    text-align: center;
-    margin-bottom: 25px;
+.dots{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
 }
 
-.header h1 {
-    color: #8f2855;
-    font-size: 38px;
-    margin-bottom: 15px;
+.dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#dfa0b9;
 }
 
-.header p {
-    font-size: 23px;
-    color: #9c4165;
-}
-
-
-/* =========================
-   PHOTO SLIDESHOW
-========================= */
-
-.photo-area {
-    position: relative;
-    width: 100%;
-    max-width: 680px;
-    height: 520px;
-    margin: 30px auto 15px;
-    perspective: 1400px;
-}
-
-.photo-card {
-    position: absolute;
-    inset: 0;
-    padding: 12px;
-    background: white;
-    border-radius: 32px;
-    box-shadow:
-        0 20px 50px rgba(90, 20, 50, 0.22);
-
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-
-    transition:
-        transform 1.2s ease,
-        opacity 1.2s ease;
-}
-
-.photo-card img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    border-radius: 23px;
-}
-
-
-/* الصورة الحالية */
-
-.photo-card.active {
-    opacity: 1;
-    transform: rotateY(0deg) scale(1);
-    z-index: 5;
-}
-
-
-/* الصورة اللي هتظهر */
-
-.photo-card.next {
-    opacity: 0;
-    transform: rotateY(90deg) scale(.88);
-    z-index: 1;
-}
-
-
-/* الصورة القديمة */
-
-.photo-card.prev {
-    opacity: 0;
-    transform: rotateY(-90deg) scale(.88);
-    z-index: 1;
-}
-
-
-/* =========================
-   PHOTO NUMBER
-========================= */
-
-.photo-number {
-    text-align: center;
-    color: #9b4164;
-    font-size: 20px;
-    margin: 20px 0 35px;
+.dot.active{
+    width:30px;
+    border-radius:10px;
+    background:#a92f60;
 }
 
 
@@ -297,34 +236,25 @@ body {
    MESSAGE
 ========================= */
 
-.message {
-    width: 100%;
-    background: rgba(255,255,255,.94);
-    border-radius: 32px;
-    padding: 35px 25px;
-    text-align: center;
-    box-shadow:
-        0 15px 45px rgba(100,20,50,.15);
-
-    font-size: 22px;
-    line-height: 2.1;
+.message{
+    max-width:650px;
+    margin:30px auto;
+    background:rgba(255,255,255,0.92);
+    border-radius:30px;
+    padding:30px 22px;
+    box-shadow:0 10px 35px rgba(100,30,60,0.12);
 }
 
-.message-title {
-    color: #a52f60;
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 25px;
+.message h2{
+    color:#a32d5d;
+    font-size:30px;
+    margin-bottom:25px;
 }
 
-.message p {
-    margin-bottom: 18px;
-}
-
-.final {
-    color: #a52f60;
-    font-size: 28px;
-    font-weight: bold;
+.message p{
+    font-size:24px;
+    line-height:2;
+    margin:0;
 }
 
 
@@ -332,28 +262,65 @@ body {
    MUSIC BUTTON
 ========================= */
 
-.music-btn {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
+.music-btn{
+    position:fixed;
+    bottom:22px;
+    left:22px;
 
-    width: 62px;
-    height: 62px;
+    width:65px;
+    height:65px;
 
-    border: none;
-    border-radius: 50%;
+    border-radius:50%;
+    border:none;
 
-    background: #b33668;
-    color: white;
+    background:#b23867;
+    color:white;
 
-    font-size: 26px;
-
-    cursor: pointer;
-
-    z-index: 100;
+    font-size:28px;
 
     box-shadow:
-        0 8px 25px rgba(80,20,40,.25);
+    0 8px 25px
+    rgba(100,30,60,0.25);
+
+    cursor:pointer;
+
+    z-index:100;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+    position:fixed;
+    pointer-events:none;
+
+    animation:
+    floatHeart
+    6s linear forwards;
+
+    z-index:0;
+}
+
+@keyframes floatHeart{
+
+    from{
+        transform:
+        translateY(100vh)
+        rotate(0deg);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+        translateY(-120vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+
 }
 
 
@@ -361,76 +328,50 @@ body {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .login-box {
-        padding: 35px 20px;
-        border-radius: 30px;
+    .password-box h1{
+        font-size:31px;
     }
 
-    .big-heart {
-        font-size: 70px;
+    .title{
+        font-size:32px;
     }
 
-    .login-box h1 {
-        font-size: 30px;
+    .subtitle{
+        font-size:20px;
     }
 
-    .login-box h2 {
-        font-size: 20px;
+    .photo-card img{
+        height:55vh;
+        min-height:300px;
     }
 
-    .login-box p {
-        font-size: 18px;
+    .message p{
+        font-size:21px;
     }
 
-    .photo-area {
-        height: 430px;
+    .message h2{
+        font-size:26px;
     }
 
-    .header h1 {
-        font-size: 30px;
-    }
-
-    .header p {
-        font-size: 20px;
-    }
-
-    .message {
-        font-size: 20px;
-        padding: 30px 18px;
-    }
-
-    .message-title {
-        font-size: 26px;
-    }
-
-    .final {
-        font-size: 25px;
-    }
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     FLOATING HEARTS
-========================= -->
-
-<div class="hearts" id="hearts"></div>
-
-
-<!-- =========================
+<!-- ==================================================
      PASSWORD PAGE
-========================= -->
+================================================== -->
 
-<section id="login">
+<div id="passwordPage">
 
-    <div class="login-box">
+    <div class="password-box">
 
         <div class="big-heart">
             ❤️
@@ -440,148 +381,143 @@ body {
             Mahmoud To Omnia
         </h1>
 
-        <h2>
+        <p>
             A Special Memory For My Love 💕
-        </h2>
+        </p>
 
         <p>
-            اكتبي الباسورد عشان تفتحي رسالتك ❤️
+            Enter the password to open your surprise ❤️
         </p>
 
         <input
             id="password"
             type="password"
             inputmode="numeric"
-            maxlength="7"
-            placeholder="•••••••"
-            autocomplete="off"
+            placeholder="Password"
         >
 
         <button
             class="open-btn"
-            onclick="openMessage()"
-        >
-            ❤️ افتحي رسالتك ❤️
+            onclick="checkPassword()">
+
+            ❤️ Open My Message ❤️
+
         </button>
 
         <div id="error"></div>
 
     </div>
 
-</section>
+</div>
 
 
 
-<!-- =========================
+<!-- ==================================================
      MAIN PAGE
-========================= -->
+================================================== -->
 
-<section id="content">
+<div id="mainPage">
 
+    <div class="title">
+        ❤️ Mahmoud To Omnia ❤️
+    </div>
 
-    <div class="header">
-
-        <h1>
-            ❤️ Mahmoud To Omnia ❤️
-        </h1>
-
-        <p>
-            أجمل ذكرياتنا مع بعض 💕
-        </p>
-
+    <div class="subtitle">
+        Our Beautiful Memories ❤️
     </div>
 
 
+    <!-- PHOTO -->
 
-    <!-- =========================
-         PHOTOS
-    ========================= -->
+    <div class="slider-container">
 
-    <div
-        class="photo-area"
-        id="photoArea"
-    ></div>
+        <div class="photo-card">
 
+            <img
+                id="memoryImage"
+                src="Badra1.jpg"
+                alt="Our Memory"
+            >
 
-    <div
-        class="photo-number"
-        id="photoNumber"
-    >
-        Memory 1 / 13
-    </div>
-
-
-
-    <!-- =========================
-         MESSAGE
-    ========================= -->
-
-    <div class="message">
-
-        <div class="message-title">
-            ❤️ إلى أمنية… حبيبتي ومراتي ❤️
         </div>
 
 
-        <p>
-            كل سنة وإنتِ حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
-        </p>
+        <div class="counter">
+
+            Memory
+            <span id="currentNumber">1</span>
+            /
+            <span id="totalNumber">13</span>
+
+        </div>
 
 
-        <p>
-            كل سنة وإحنا مع بعض، وكل سنة وإنتِ سندي وراحتي وأماني
-        </p>
-
-
-        <p>
-            ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
-            ويجمعنا دايمًا على خير وحب.
-        </p>
-
-
-        <p class="final">
-            عيد جواز سعيد علينا يا حبيبتي ❤️💍
-        </p>
-
-
-        <p>
-            بحبك يا Omnia ❤️
-        </p>
-
-
-        <p>
-            من Mahmoud إلى Omnia 💕
-        </p>
+        <div
+            class="dots"
+            id="dots">
+        </div>
 
     </div>
 
 
-</section>
+
+    <!-- ==================================================
+         MESSAGE UNDER PHOTOS
+    ================================================== -->
+
+    <div class="message">
+
+        <h2>
+            ❤️ To My Beautiful Wife Omnia ❤️
+        </h2>
+
+        <p>
+
+            كل سنة وإنتِ حبيبتي ومراتي وأجمل حاجة حصلت في حياتي ❤️
+
+            <br>
+
+            كل سنة وإحنا مع بعض، وكل سنة وإنتِ سندي وراحتي وأماني
+
+            <br>
+
+            ربنا يخليكي ليا، ويديم بينا المودة والرحمة،
+            ويجمعنا دايمًا على خير وحب.
+
+            <br>
+
+            عيد جواز سعيد علينا يا حبيبتي ❤️💍
+
+        </p>
+
+    </div>
+
+</div>
 
 
 
-<!-- =========================
+<!-- ==================================================
      MUSIC
-========================= -->
+================================================== -->
 
 <audio
-    id="song"
-    loop
-    preload="auto"
->
+    id="music"
+    loop>
+
     <source
         src="Song.mp3"
-        type="audio/mpeg"
-    >
+        type="audio/mpeg">
+
 </audio>
 
 
 <button
     class="music-btn"
-    id="musicButton"
     onclick="toggleMusic()"
->
+    id="musicButton">
+
     🔊
+
 </button>
 
 
@@ -589,40 +525,107 @@ body {
 <script>
 
 
-/* =========================
+/* ==================================================
    PASSWORD
-========================= */
+================================================== */
 
-const PASSWORD = "2082021";
+const correctPassword = "2082021";
 
 
-/* =========================
-   EXACT FILE NAMES
-========================= */
+function checkPassword(){
+
+    const password =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("error");
+
+
+    if(password === correctPassword){
+
+        document.getElementById(
+            "passwordPage"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "mainPage"
+        ).style.display = "block";
+
+
+        startMusic();
+
+        startHearts();
+
+    }
+
+    else{
+
+        error.textContent =
+            "Wrong Omnia Try Again Baby";
+
+        document.getElementById(
+            "password"
+        ).value = "";
+
+    }
+
+}
+
+
+
+/* ==================================================
+   ENTER BUTTON
+================================================== */
+
+document
+.getElementById("password")
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
+   PHOTOS
+================================================== */
+
+/*
+   أسماء الصور مطابقة لملفات GitHub
+*/
 
 const photos = [
 
-    "Badr1.jpg",
+    "Badra1.jpg",
 
-    "Badr2.jpg",
+    "Badra2.jpg",
 
-    "Badr3.jpg",
+    "Badra3.jpg",
 
-    "Badr4.jpg",
+    "Badra4.jpg",
 
-    "Badr5.jpg",
+    "Badra5.jpg",
 
-    "Badr6.jpg",
+    "Badra6.jpg",
 
-    "Badr7.jpg",
+    "Badra7.jpg",
 
-    "Badr8.jpg",
+    "Badra8.jpg",
 
-    "Badr9.jpg",
+    "Badra9.jpg",
 
-    "Badr10.jpg",
+    "Badra10.jpg",
 
-    "Badr11.jpg",
+    "Badra11.jpg",
 
     "Photo1.jpg",
 
@@ -633,386 +636,326 @@ const photos = [
 
 let currentPhoto = 0;
 
-let slideTimer = null;
+
+const image =
+    document.getElementById(
+        "memoryImage"
+    );
 
 
-/* =========================
-   OPEN MESSAGE
-========================= */
-
-function openMessage() {
-
-    const passwordInput =
-        document.getElementById("password");
-
-    const error =
-        document.getElementById("error");
-
-    const password =
-        passwordInput.value.trim();
+const currentNumber =
+    document.getElementById(
+        "currentNumber"
+    );
 
 
-    /* PASSWORD CORRECT */
-
-    if (password === PASSWORD) {
-
-        error.textContent = "";
-
-        document.getElementById("login").style.display = "none";
-
-        document.getElementById("content").style.display = "block";
+const totalNumber =
+    document.getElementById(
+        "totalNumber"
+    );
 
 
-        /* CREATE PHOTOS */
-
-        createPhotos();
-
-
-        /* START SLIDESHOW */
-
-        startSlideshow();
+const dotsContainer =
+    document.getElementById(
+        "dots"
+    );
 
 
-        /* START MUSIC */
-
-        playMusic();
-
-
-        window.scrollTo(0, 0);
-
-    }
+totalNumber.textContent =
+    photos.length;
 
 
-    /* PASSWORD WRONG */
 
-    else {
+/* ==================================================
+   CREATE DOTS
+================================================== */
 
-        error.textContent =
-            "Wrong Omnia Try Again Baby ❤️";
+photos.forEach(
+    function(photo,index){
 
-        passwordInput.value = "";
-
-        passwordInput.focus();
-
-    }
-
-}
-
-
-/* =========================
-   ENTER KEY
-========================= */
-
-document
-.getElementById("password")
-.addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-
-        openMessage();
-
-    }
-
-});
-
-
-/* =========================
-   CREATE PHOTO CARDS
-========================= */
-
-function createPhotos() {
-
-    const area =
-        document.getElementById("photoArea");
-
-
-    area.innerHTML = "";
-
-
-    photos.forEach(function(photo, index) {
-
-        const card =
+        const dot =
             document.createElement("div");
 
 
-        card.className =
-            "photo-card";
+        dot.className = "dot";
 
 
-        if (index === 0) {
+        if(index === 0){
 
-            card.classList.add("active");
-
-        }
-
-        else {
-
-            card.classList.add("next");
-
-        }
-
-
-        const image =
-            document.createElement("img");
-
-
-        image.src = photo;
-
-
-        image.alt =
-            "Our Memory " + (index + 1);
-
-
-        image.onerror = function() {
-
-            console.log(
-                "Image not found: " + photo
+            dot.classList.add(
+                "active"
             );
 
-        };
+        }
 
 
-        card.appendChild(image);
+        dot.onclick =
+            function(){
+
+                currentPhoto =
+                    index;
+
+                showPhoto();
+
+            };
 
 
-        area.appendChild(card);
+        dotsContainer.appendChild(
+            dot
+        );
 
-    });
+    }
+);
 
 
-    updatePhotoNumber();
+
+/* ==================================================
+   SHOW PHOTO
+================================================== */
+
+function showPhoto(){
+
+    image.classList.remove(
+        "flip"
+    );
+
+
+    void image.offsetWidth;
+
+
+    image.src =
+        photos[currentPhoto];
+
+
+    image.classList.add(
+        "flip"
+    );
+
+
+    currentNumber.textContent =
+        currentPhoto + 1;
+
+
+    const dots =
+        document.querySelectorAll(
+            ".dot"
+        );
+
+
+    dots.forEach(
+        function(dot,index){
+
+            if(index === currentPhoto){
+
+                dot.classList.add(
+                    "active"
+                );
+
+            }
+
+            else{
+
+                dot.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
 
 }
 
 
-/* =========================
+
+/* ==================================================
    NEXT PHOTO
-========================= */
+================================================== */
 
-function nextPhoto() {
-
-    const cards =
-        document.querySelectorAll(".photo-card");
-
-
-    if (!cards.length) {
-        return;
-    }
-
-
-    /* OLD PHOTO */
-
-    cards[currentPhoto]
-        .classList.remove("active");
-
-    cards[currentPhoto]
-        .classList.add("prev");
-
-
-    /* NEXT INDEX */
+function nextPhoto(){
 
     currentPhoto++;
 
 
-    if (currentPhoto >= cards.length) {
+    if(
+        currentPhoto >=
+        photos.length
+    ){
 
         currentPhoto = 0;
 
     }
 
 
-    /* NEW PHOTO */
-
-    cards[currentPhoto]
-        .classList.remove("next");
-
-    cards[currentPhoto]
-        .classList.remove("prev");
-
-    cards[currentPhoto]
-        .classList.add("active");
-
-
-    updatePhotoNumber();
+    showPhoto();
 
 }
 
 
-/* =========================
-   START SLIDESHOW
-========================= */
 
-function startSlideshow() {
+/* ==================================================
+   AUTO FLIP
+================================================== */
 
-    if (slideTimer) {
+setInterval(
+    function(){
 
-        clearInterval(slideTimer);
+        const mainPage =
+            document.getElementById(
+                "mainPage"
+            );
 
-    }
 
-
-    slideTimer =
-        setInterval(function() {
+        if(
+            mainPage.style.display
+            !== "none"
+        ){
 
             nextPhoto();
 
-        }, 4000);
+        }
 
-}
-
-
-/* =========================
-   PHOTO NUMBER
-========================= */
-
-function updatePhotoNumber() {
-
-    document.getElementById("photoNumber")
-        .textContent =
-        "Memory " +
-        (currentPhoto + 1) +
-        " / " +
-        photos.length;
-
-}
+    },
+    4000
+);
 
 
-/* =========================
+
+/* ==================================================
    MUSIC
-========================= */
+================================================== */
 
-function playMusic() {
-
-    const song =
-        document.getElementById("song");
-
-
-    song.volume = 0.8;
+const music =
+    document.getElementById(
+        "music"
+    );
 
 
-    const playPromise =
-        song.play();
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
 
 
-    if (playPromise !== undefined) {
+function startMusic(){
 
-        playPromise
-        .then(function() {
+    music.volume = 0.7;
 
-            document.getElementById("musicButton")
-                .textContent = "🔊";
 
-        })
-        .catch(function() {
+    music.play()
+    .then(
+        function(){
 
-            /*
-             بعض الموبايلات تمنع التشغيل التلقائي.
-             لكن لأن التشغيل حصل بعد ضغطة الباسورد
-             المفروض يشتغل.
-            */
+            musicButton.textContent =
+                "🔊";
 
-            document.getElementById("musicButton")
-                .textContent = "▶️";
+        }
+    )
+    .catch(
+        function(){
 
-        });
+            musicButton.textContent =
+                "▶️";
+
+        }
+    );
+
+}
+
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.textContent =
+            "🔊";
+
+    }
+
+    else{
+
+        music.pause();
+
+        musicButton.textContent =
+            "🔇";
 
     }
 
 }
 
 
-/* =========================
-   MUSIC BUTTON
-========================= */
 
-function toggleMusic() {
-
-    const song =
-        document.getElementById("song");
-
-    const button =
-        document.getElementById("musicButton");
-
-
-    if (song.paused) {
-
-        song.play()
-            .then(function() {
-
-                button.textContent = "🔊";
-
-            })
-            .catch(function() {
-
-                button.textContent = "▶️";
-
-            });
-
-    }
-
-    else {
-
-        song.pause();
-
-        button.textContent = "🔇";
-
-    }
-
-}
-
-
-/* =========================
+/* ==================================================
    FLOATING HEARTS
-========================= */
+================================================== */
 
-function createFloatingHearts() {
+function startHearts(){
 
-    const container =
-        document.getElementById("hearts");
+    setInterval(
+        function(){
 
-
-    for (let i = 0; i < 20; i++) {
-
-        const heart =
-            document.createElement("div");
-
-
-        heart.className = "heart";
+            const heart =
+                document.createElement(
+                    "div"
+                );
 
 
-        heart.textContent =
-            Math.random() > 0.5
-            ? "❤️"
-            : "💕";
+            heart.className =
+                "heart";
 
 
-        heart.style.left =
-            Math.random() * 100 + "%";
+            heart.textContent =
+                Math.random() > 0.5
+                ? "❤️"
+                : "💕";
 
 
-        heart.style.animationDuration =
-            (6 + Math.random() * 8) + "s";
+            heart.style.left =
+                Math.random() * 100
+                + "vw";
 
 
-        heart.style.animationDelay =
-            Math.random() * 8 + "s";
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 25
+                )
+                + "px";
 
 
-        heart.style.fontSize =
-            (18 + Math.random() * 22) + "px";
+            heart.style.animationDuration =
+                (
+                    4 +
+                    Math.random() * 4
+                )
+                + "s";
 
 
-        container.appendChild(heart);
+            document.body.appendChild(
+                heart
+            );
 
-    }
+
+            setTimeout(
+                function(){
+
+                    heart.remove();
+
+                },
+                8000
+            );
+
+        },
+        700
+    );
 
 }
-
-
-createFloatingHearts();
-
 
 </script>
 
 </body>
+
 </html>
